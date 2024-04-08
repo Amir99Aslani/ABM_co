@@ -1,11 +1,18 @@
 import React from 'react';
+import Header from "../wedgits/Header";
+import Footer from "../wedgits/Footer";
+import "../css/HomePage.scss";
 
 function HomePage(props) {
 
 
     return (
-        <div>
-            <h1>hi</h1>
+        <div className="mainContainer">
+          <Header />
+            <div className="mainContent">
+
+            </div>
+            <Footer />
         </div>
     );
 }
