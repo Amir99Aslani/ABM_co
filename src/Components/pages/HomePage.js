@@ -13,6 +13,9 @@ function HomePage(props) {
                 <div className="bannerContainer">
 
                 </div>
+                <div className="crucelContainer">
+
+                </div>
             </div>
             <Footer/>
         </div>
