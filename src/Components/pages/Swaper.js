@@ -32,7 +32,7 @@ const {width , height} = useWindowDimensions()
               <img src={imgcard} alt="" />
               <p>
               لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15 FX506HF-HN014-i5
-                {/* 11400H 16GB 512SSD RTX2050 - کاستوم شده */}
+                11400H 16GB 512SSD RTX2050 - کاستوم شده
               </p>{" "}
               <div className="payment-bar-card">
                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
