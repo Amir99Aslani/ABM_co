@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: IRANSansMedium;
+  src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
+}
 
 .mainContainer {
   width: 100%;
@@ -11,13 +15,105 @@
     width: 100%;
     height: 90%;
 
-    // .bannerContainer {
-    //   width: 90%;
-    //   height: 60%;
-    //   background-color: #5C8DF6;
-    //   margin: 20px auto;
-    //   border-radius: 50px;
-    // }
+    .bannerContainer {
+      //width: 90%;
+      //height: 60%;
+      //background-color: #5C8DF6;
+      //margin: 20px auto;
+      //border-radius: 50px;
+    }
+
+    .crucelContainer {
+      min-height: 40%;
+    }
+
+    .favoriteMobileContainer {
+      height: 20%;
+
+      .favoriteMobileBtn {
+        border-radius: 10px;
+        background: #08124F;
+        margin: auto;
+        outline: none;
+        border: none;
+        color: #ffffff;
+        font-family: IRANSansMedium;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all ease-in-out 0.4s;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        &:hover {
+          filter: opacity(0.8);
+        }
+      }
+
+      .brandsCardContainer {
+        margin: auto;
+        display: flex;
+        width: fit-content;
+        cursor: pointer;
+
+        .brandsCard {
+          display: flex;
+          border-radius: 25px;
+          background: #FFF;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          padding: 10px;
+          width: 85px;
+          height: 85px;
+          margin: 0 15px;
+
+          svg {
+            margin: auto;
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+
+    }
+
+    .BestSellingProducts {
+      padding: 10px;
+      margin: 15px auto;
+      border-radius: 50px;
+      min-height: 40%;
+      border: 5px dashed rgba(33, 30, 178, 0.40);
+      width: 90%;
+
+      .cards {
+        width: 210px;
+        height: 180px;
+        margin: 10px auto;
+        border-radius: 50px;
+        border: 8px solid #AA0002;
+        cursor: pointer;
+        transition: all ease-in-out 0.5s;
+        &:hover{
+        filter: opacity(0.8);
+        }
+
+        &.btn{
+          background: #AA0002;
+          display: flex;
+          p{
+            margin: auto;
+            width: 70%;
+            color: #FFF;
+            text-align: center;
+            font-family: IRANSansMedium;
+            font-size: 18px;
+          }
+        }
+        img {
+          width: 100%;
+          height: 160px;
+          border-radius: 50px;
+        }
+      }
+    }
+
   }
 
 }

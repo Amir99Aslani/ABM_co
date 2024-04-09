@@ -21,6 +21,7 @@ const {width , height} = useWindowDimensions()
     <>
       <div className="main-container-swaper">
         <Swiper
+            loop={true}
           slidesPerView={width > 700 ? 5 : 2}
           spaceBetween={30}
           freeMode={true}
