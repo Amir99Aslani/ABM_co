@@ -4,19 +4,21 @@ import "../css/Header.scss";
 function Header(props) {
 
 
-
     return (
         <>
+            <div className="navHeader">
+
+            </div>
             <nav>
                 <div className="navBar">
                     <div className="logo">
                         <a href="#">Logo inja</a>
                     </div>
-                    <input type="radio" name="slider" id="menu-btn" />
-                    <input type="radio" name="slider" id="close-btn" />
+                    <input type="radio" name="slider" id="menu-btn"/>
+                    <input type="radio" name="slider" id="close-btn"/>
                     <ul className="nav-links">
                         <label htmlFor="close-btn" className="btn close-btn">
-                            <i className="fas fa-times" />
+                            <i className="fas fa-times"/>
                         </label>
                         <li>
                             <a href="#">Home</a>
@@ -28,7 +30,7 @@ function Header(props) {
                             <a href="#" className="desktop-item">
                                 Dropdown Menu
                             </a>
-                            <input type="checkbox" id="showDrop" />
+                            <input type="checkbox" id="showDrop"/>
                             <label htmlFor="showDrop" className="mobile-item">
                                 Dropdown Menu
                             </label>
@@ -51,7 +53,7 @@ function Header(props) {
                             <a href="#" className="desktop-item">
                                 Mega Menu
                             </a>
-                            <input type="checkbox" id="showMega" />
+                            <input type="checkbox" id="showMega"/>
                             <label htmlFor="showMega" className="mobile-item">
                                 Mega Menu
                             </label>
@@ -122,7 +124,7 @@ function Header(props) {
                         </li>
                     </ul>
                     <label htmlFor="menu-btn" className="btn menu-btn">
-                        <i className="fas fa-bars" />
+                        <i className="fas fa-bars"/>
                     </label>
                 </div>
             </nav>

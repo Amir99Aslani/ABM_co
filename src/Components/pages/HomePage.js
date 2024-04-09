@@ -8,11 +8,13 @@ function HomePage(props) {
 
     return (
         <div className="mainContainer">
-          <Header />
+            <Header/>
             <div className="mainContent">
+                <div className="bannerContainer">
 
+                </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }

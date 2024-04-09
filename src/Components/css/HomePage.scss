@@ -3,13 +3,21 @@
 }
 
 
-.mainContainer{
+.mainContainer {
   width: 100%;
   height: 100%;
 
-  .mainContent{
+  .mainContent {
     width: 100%;
     height: 90%;
+
+    .bannerContainer {
+      width: 90%;
+      height: 60%;
+      background-color: #5C8DF6;
+      margin: 20px auto;
+      border-radius: 50px;
+    }
   }
 
 }
