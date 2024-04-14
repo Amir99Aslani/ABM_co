@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "../css/Slider.scss";
 
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import {Navigation, Pagination, Mousewheel, Keyboard, Autoplay} from "swiper/modules";
 
 export default function Slider() {
   return (
@@ -21,7 +21,12 @@ export default function Slider() {
           pagination={true}
           mousewheel={true}
           keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Navigation, Pagination, Mousewheel, Keyboard , Autoplay]}
           className="slider"
         >
           <SwiperSlide>

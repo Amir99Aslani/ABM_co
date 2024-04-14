@@ -2,8 +2,8 @@ import React from 'react';
 import Header from "../wedgits/Header";
 import Footer from "../wedgits/Footer";
 import "../css/HomePage.scss";
-import Slider from "./Slider";
-import Swaper from "./Swaper";
+import Slider from "../wedgits/Slider";
+import Swaper from "../wedgits/Swaper";
 
 function HomePage(props) {
 
@@ -13,8 +13,9 @@ function HomePage(props) {
             <Header/>
             <div className="mainContent">
                 <div className="bannerContainer">
-                    <Slider />
+                    <Slider/>
                 </div>
+                <br/>
                 <div className="crucelContainer">
                     <Swaper/>
                 </div>
@@ -24,7 +25,7 @@ function HomePage(props) {
                 <div className="favoriteMobileContainer">
                     <div style={{display: "flex"}}>
                         <button className="favoriteMobileBtn">
-                            محبوب‌ترین برند موبایل
+                            محبوب‌ ترین برند موبایل
                         </button>
                     </div>
                     <br/>
@@ -152,9 +153,9 @@ function HomePage(props) {
                 <br/>
 
                 <div className="BestSellingProducts">
-                    <div style={{display: "flex"}}>
+                    <div style={{display: "flex", justifyContent:"center"}}>
                         <div className="cards btn">
-                            <p>پرفروش‌ترین محصولات</p>
+                            <p>پرفروش‌ ترین محصولات</p>
                         </div>
                         <div className="cards">
                             <img src="./sample.jpeg"/>
@@ -167,7 +168,7 @@ function HomePage(props) {
                         </div>
                     </div>
 
-                    <div style={{display: "flex"}}>
+                    <div style={{display: "flex" , justifyContent:"center"}}>
                         <div className="cards">
                             <img src="./sample.jpeg"/>
                         </div>
@@ -184,6 +185,127 @@ function HomePage(props) {
                 </div>
 
                 <br/>
+
+                <div className="accessoriesContainer">
+                    <div style={{display: "flex"}}>
+                        <button className="accessoriesBtn">
+                            لوازم جانبی
+                        </button>
+                    </div>
+                    <br/>
+                    <div style={{display: "flex"}}>
+                        <div className="accessoriesCardContainer">
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                            <div className="brandsCard">
+                                <img src="./Frame 20.png" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+                <br/>
+
+                <div className="merchandiseDataContainer">
+                    <div style={{display: "flex"}}>
+                        <button className="merchandiseDataBtn">
+                            خواندنی‌ها
+                        </button>
+                    </div>
+                    <br/>
+                    <div style={{display: "flex"}}>
+                        <div className="merchandiseDataIssues">
+                            <div className="DataIssue">
+                                <div className="imgContainer">
+                                    <img src="./60138a1dd9c377e966222e080da79199.jpeg" alt="" />
+                                </div>
+                                <div className="textContainer">
+                                    <h4>بررسی لپ‌تاپ ایسر Swift Go 14؛ به شدت پرتابل و قدرتمند</h4>
+                                    <p>
+                                        این لپ‌تاپ با وجود استفاده از نمایشگر ۱۴ اینچی، بسیار کوچک و پرتابل محسوب
+                                        می‌شود. بیشتر نمایشگرهای لپ‌تاپ‌ها مبتنی بر پنل IPS هستند ولی لپ‌تاپ ایسر Swift
+                                        Go 14 از نمایشگر OLED با رزولوشن ۲۸۸۰ در ۱۸۰۰ بهره می‌برد. رفرش‌ریت نمایشگر به
+                                        ۹۰ هرتز می‌رسد و روشنایی ۵۰۰ نیت می‌تواند برای بسیاری از محیط‌ها کافی باشد.
+                                        این مدل از لپ‌تاپ، از پردازنده اینتل اولترا ۵ ۱۲۵H بهره می‌برد و در کنار آن ۱۶
+                                        گیگابایت رم DDR5 استفاده شده است. با وجود اینکه از گرافیک جداگانه برای آن
+                                        استفاده نشده، ولی گرافیک داخلی پردازنده به حدی قدرتمند است که می‌توانید بیشتر
+                                        بازی‌ها را اجرا کنید. این لپ‌تاپ مناسب کاربرانی است که می‌خواهند ساعت‌های زیادی
+                                        از لپ‌تاپ قدرتمند و پرتابل با خیال راحت استفاده کنند.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="DataIssue">
+                                <div className="imgContainer">
+                                    <img src="./60138a1dd9c377e966222e080da79199.jpeg" alt="" />
+                                </div>
+                                <div className="textContainer">
+                                    <h4>بررسی لپ‌تاپ ایسر Swift Go 14؛ به شدت پرتابل و قدرتمند</h4>
+                                    <p>
+                                        این لپ‌تاپ با وجود استفاده از نمایشگر ۱۴ اینچی، بسیار کوچک و پرتابل محسوب
+                                        می‌شود. بیشتر نمایشگرهای لپ‌تاپ‌ها مبتنی بر پنل IPS هستند ولی لپ‌تاپ ایسر Swift
+                                        Go 14 از نمایشگر OLED با رزولوشن ۲۸۸۰ در ۱۸۰۰ بهره می‌برد. رفرش‌ریت نمایشگر به
+                                        ۹۰ هرتز می‌رسد و روشنایی ۵۰۰ نیت می‌تواند برای بسیاری از محیط‌ها کافی باشد.
+                                        این مدل از لپ‌تاپ، از پردازنده اینتل اولترا ۵ ۱۲۵H بهره می‌برد و در کنار آن ۱۶
+                                        گیگابایت رم DDR5 استفاده شده است. با وجود اینکه از گرافیک جداگانه برای آن
+                                        استفاده نشده، ولی گرافیک داخلی پردازنده به حدی قدرتمند است که می‌توانید بیشتر
+                                        بازی‌ها را اجرا کنید. این لپ‌تاپ مناسب کاربرانی است که می‌خواهند ساعت‌های زیادی
+                                        از لپ‌تاپ قدرتمند و پرتابل با خیال راحت استفاده کنند.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="DataIssue">
+                                <div className="imgContainer">
+                                    <img src="./60138a1dd9c377e966222e080da79199.jpeg" alt="" />
+                                </div>
+                                <div className="textContainer">
+                                    <h4>بررسی لپ‌تاپ ایسر Swift Go 14؛ به شدت پرتابل و قدرتمند</h4>
+                                    <p>
+                                        این لپ‌تاپ با وجود استفاده از نمایشگر ۱۴ اینچی، بسیار کوچک و پرتابل محسوب
+                                        می‌شود. بیشتر نمایشگرهای لپ‌تاپ‌ها مبتنی بر پنل IPS هستند ولی لپ‌تاپ ایسر Swift
+                                        Go 14 از نمایشگر OLED با رزولوشن ۲۸۸۰ در ۱۸۰۰ بهره می‌برد. رفرش‌ریت نمایشگر به
+                                        ۹۰ هرتز می‌رسد و روشنایی ۵۰۰ نیت می‌تواند برای بسیاری از محیط‌ها کافی باشد.
+                                        این مدل از لپ‌تاپ، از پردازنده اینتل اولترا ۵ ۱۲۵H بهره می‌برد و در کنار آن ۱۶
+                                        گیگابایت رم DDR5 استفاده شده است. با وجود اینکه از گرافیک جداگانه برای آن
+                                        استفاده نشده، ولی گرافیک داخلی پردازنده به حدی قدرتمند است که می‌توانید بیشتر
+                                        بازی‌ها را اجرا کنید. این لپ‌تاپ مناسب کاربرانی است که می‌خواهند ساعت‌های زیادی
+                                        از لپ‌تاپ قدرتمند و پرتابل با خیال راحت استفاده کنند.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="merchandiseDataImg">
+                            <div style={{margin:"auto auto 0 auto" , zIndex:10}}>
+                                <h5>بررسی لپ‌تاپ ایسر Swift Go 14؛ به شدت پرتابل و قدرتمند</h5>
+                                <p>
+                                    این لپ‌تاپ با وجود استفاده از نمایشگر ۱۴ اینچی، بسیار کوچک و پرتابل محسوب می‌شود. بیشتر
+                                    نمایشگرهای لپ‌تاپ‌ها مبتنی بر پنل IPS هستند ولی لپ‌تاپ ایسر Swift Go 14 از نمایشگر OLED
+                                    با رزولوشن ۲۸۸۰ در ۱۸۰۰ بهره می‌برد. رفرش‌ریت نمایشگر به ۹۰ هرتز می‌رسد و روشنایی ۵۰۰
+                                    نیت می‌تواند برای بسیاری از محیط‌ها کافی باشد.
+                                    این مدل از لپ‌تاپ، از پردازنده اینتل اولترا ۵ ۱۲۵H بهره می‌برد و در کنار آن ۱۶ گیگابایت
+                                    رم DDR5 استفاده شده است. با وجود اینکه از گرافیک جداگانه برای آن استفاده نشده، ولی
+                                    گرافیک داخلی پردازنده به حدی قدرتمند است که می‌توانید بیشتر بازی‌ها را اجرا کنید. این
+                                    لپ‌تاپ مناسب کاربرانی است که می‌خواهند ساعت‌های زیادی از لپ‌تاپ قدرتمند و پرتابل با خیال
+                                    راحت استفاده کنند.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <br/>
 
             </div>

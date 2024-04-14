@@ -1,13 +1,21 @@
+
+@font-face {
+  font-family: IRANSansMedium;
+  src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
+}
+
 .main-container-swaper {
   width: 100%;
-  min-height: 550px;
+  min-height: 400px;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #e7e7e7;
+
   .mySwiper {
     display: flex;
+
     .card {
       background-color: #08124f;
       border-radius: 50px;
@@ -20,10 +28,22 @@
       justify-content: center;
       flex-direction: column;
       padding: 15px;
-      img {
+
+      .imgContainer {
         height: 50%;
         width: 95%;
+        img {
+          height: 100%;
+          width: 100%;
+        }
       }
+
+      .merchandise{
+        font-family: IRANSansMedium;
+        font-size: 14px;
+        margin: 10px 0;
+      }
+
       .payment-bar-card {
         display: flex;
         flex-direction: row-reverse;
@@ -34,8 +54,10 @@
         // flex-wrap: wrap;
         // background-color: red;
 
-        p{
+        p {
           text-align: center;
+          font-family: IRANSansMedium;
+          font-size: 12px;
         }
 
         .add-to-cart {
@@ -48,14 +70,19 @@
           color: black;
           width: 60%;
           height: 50px;
-          img{
-            width: 30px;
-            height: 30px;
+
+          .imgContainer{
+            width: 30%;
+            img {
+              width: 25px;
+              height: 25px;
+            }
           }
-          p{
-            width: 100%;
+
+          p {
+            width: 65%;
           }
-        
+
         }
       }
     }
