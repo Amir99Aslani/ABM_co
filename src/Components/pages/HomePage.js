@@ -309,7 +309,7 @@ function HomePage(props) {
                 <br/>
 
             </div>
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     );
 }
