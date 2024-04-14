@@ -92,11 +92,16 @@
         font-family: IRANSansMedium;
         p {
           font-family: IRANSansMedium;
-
+          cursor: pointer;
+          margin: 3px 0;
+          transition: all 0.5s ease-in-out;
           &:first-child {
             color: #211eb2;
             margin: 10px;
             width: 100%;
+          }
+          &:hover{
+            color: #6a6a6aef;
           }
         }
       }
