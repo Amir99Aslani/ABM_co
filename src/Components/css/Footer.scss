@@ -1,0 +1,105 @@
+@font-face {
+  font-family: IRANSansMedium;
+  src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
+}
+
+.footerBar {
+  z-index: 99;
+  width: 100%;
+  height: 10%;
+  background-image: url(../css/images/FooterBG.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5% 0 0 0;
+  padding: 0 0 2% 0;
+  font-family: IRANSansMedium;
+
+  .info_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    font-family: IRANSansMedium;
+    .logo {
+    }
+
+    .contact_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      p {
+        font-family: IRANSansMedium;
+      }
+    }
+
+    .social_media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .social_media_title {
+        margin: 10px;
+      }
+      .social_media_items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+        .social_media_item {
+          margin: 0 10px;
+        }
+      }
+    }
+
+    .symbols {
+      .symbol_item {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .navbar_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    font-family: IRANSansMedium;
+    .product_option {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      margin: 5% 0;
+      .option_item {
+        cursor: pointer;
+      }
+    }
+    .footer_links {
+      direction: rtl;
+      display: flex;
+      justify-content: space-around;
+      align-items: start;
+      flex-direction: row;
+      width: 100%;
+      .link_item {
+        font-family: IRANSansMedium;
+        p {
+          font-family: IRANSansMedium;
+
+          &:first-child {
+            color: #211eb2;
+            margin: 10px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

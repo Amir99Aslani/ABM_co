@@ -12,9 +12,11 @@ function HomePage(props) {
         <div className="mainContainer">
             <Header/>
             <div className="mainContent">
+
                 <div className="bannerContainer">
                     <Slider />
                 </div>
+
                 <div className="crucelContainer">
                     <Swaper/>
                 </div>
@@ -187,7 +189,7 @@ function HomePage(props) {
                 <br/>
 
             </div>
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     );
 }

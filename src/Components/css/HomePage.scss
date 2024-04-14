@@ -1,4 +1,6 @@
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   box-sizing: border-box;
 }
 
@@ -9,15 +11,18 @@
 
 .mainContainer {
   width: 100%;
-  height: 100%;
-
+  // height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
   .mainContent {
     width: 100%;
-    height: 90%;
+    height: 80%;
 
     .bannerContainer {
       //width: 90%;
-      //height: 60%;
+      height: 60%;
       //background-color: #5C8DF6;
       //margin: 20px auto;
       //border-radius: 50px;
@@ -32,7 +37,7 @@
 
       .favoriteMobileBtn {
         border-radius: 10px;
-        background: #08124F;
+        background: #08124f;
         margin: auto;
         outline: none;
         border: none;
@@ -41,7 +46,8 @@
         padding: 5px 10px;
         cursor: pointer;
         transition: all ease-in-out 0.4s;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
         &:hover {
           filter: opacity(0.8);
@@ -57,7 +63,7 @@
         .brandsCard {
           display: flex;
           border-radius: 25px;
-          background: #FFF;
+          background: #fff;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           padding: 10px;
           width: 85px;
@@ -71,7 +77,6 @@
           }
         }
       }
-
     }
 
     .BestSellingProducts {
@@ -79,7 +84,7 @@
       margin: 15px auto;
       border-radius: 50px;
       min-height: 40%;
-      border: 5px dashed rgba(33, 30, 178, 0.40);
+      border: 5px dashed rgba(33, 30, 178, 0.4);
       width: 90%;
 
       .cards {
@@ -87,20 +92,20 @@
         height: 180px;
         margin: 10px auto;
         border-radius: 50px;
-        border: 8px solid #AA0002;
+        border: 8px solid #aa0002;
         cursor: pointer;
         transition: all ease-in-out 0.5s;
-        &:hover{
-        filter: opacity(0.8);
+        &:hover {
+          filter: opacity(0.8);
         }
 
-        &.btn{
-          background: #AA0002;
+        &.btn {
+          background: #aa0002;
           display: flex;
-          p{
+          p {
             margin: auto;
             width: 70%;
-            color: #FFF;
+            color: #fff;
             text-align: center;
             font-family: IRANSansMedium;
             font-size: 18px;
@@ -113,7 +118,5 @@
         }
       }
     }
-
   }
-
 }
