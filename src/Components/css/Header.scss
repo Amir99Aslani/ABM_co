@@ -1,25 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navHeader {
-  height: 70px;
+  width: 90%;
+  padding: 0px 30px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+
+  .header_items {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    .basket {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .basket_counter {
+        background-color: #12c895;
+        color: #f2f2f2;
+        position: absolute;
+        right: -10px;
+        top: -5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .logo_header {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .account {
+      cursor: pointer;
+      direction: rtl;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }
 
 nav {
   z-index: 99;
   width: 100%;
-  direction: rtl;
+  direction: ltr;
 }
 
 nav .navBar {
   position: relative;
-  width: 90%;
+  width: 100%;
   padding: 0px 30px;
   height: 50px;
   line-height: 70px;
@@ -27,15 +82,53 @@ nav .navBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #242526;
+  background: #aa0002;
   border-radius: 15px;
 }
 
-.navBar .logo a {
+.navBar .searchBox_container {
+  height: 75%;
+  width: 15%;
+  border-bottom: 3px solid #fff;
+  // background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #f2f2f2;
-  font-size: 22px;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
+  direction: rtl;
+  .search_input {
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    width: 80%;
+    height: 100%;
+    input {
+      width: 100%;
+      display: block;
+      border: none;
+      outline: none;
+      background-color: inherit;
+      color: #fff;
+
+      &::placeholder{
+        color: #f2f2f2;
+      }
+    }
+  }
+  .search_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 20%;
+    height: 100%;
+    font-size: 1.3rem;
+  }
 }
 
 .navBar .nav-links {
@@ -57,7 +150,7 @@ nav .navBar {
 }
 
 .nav-links li a:hover {
-  background: #3A3B3C;
+  background: #aa000363;
 }
 
 .nav-links .mobile-item {
@@ -66,7 +159,7 @@ nav .navBar {
 
 .nav-links .drop-menu {
   position: absolute;
-  background: #242526;
+  background: #aa0002;
   width: 180px;
   line-height: 45px;
   top: 85px;
@@ -78,7 +171,7 @@ nav .navBar {
 .nav-links li:hover .drop-menu,
 .nav-links li:hover .mega-box {
   transition: all 0.3s ease;
-  top: 70px;
+  top: 60px;
   opacity: 1;
   visibility: visible;
   z-index: 10;
@@ -103,7 +196,7 @@ nav .navBar {
 }
 
 .mega-box .content {
-  background: #242526;
+  background: #aa0002;
   padding: 25px 20px;
   display: flex;
   width: 100%;
@@ -193,7 +286,7 @@ nav input {
     background: #242526;
   }
   ::-webkit-scrollbar-thumb {
-    background: #3A3B3C;
+    background: #3a3b3c;
   }
   #menu-btn:checked ~ .nav-links {
     left: 0%;
@@ -242,7 +335,7 @@ nav input {
     transition: all 0.3s ease;
   }
   .nav-links .mobile-item:hover {
-    background: #3A3B3C;
+    background: #3a3b3c;
   }
   .drop-menu li {
     margin: 0;
@@ -286,4 +379,3 @@ nav input {
     font-size: 19px;
   }
 }
-
