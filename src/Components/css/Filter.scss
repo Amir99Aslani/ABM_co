@@ -1,0 +1,170 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: IRANSansMedium;
+  src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
+}
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .mainContent {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .filterd_product_container {
+      position: relative;
+      min-height: 40%;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      // background-color: blue;
+
+      .favoriteMobileBtn {
+        border-radius: 10px;
+        background: #08124f;
+        margin: auto;
+        outline: none;
+        border: none;
+        color: #ffffff;
+        font-family: IRANSansMedium;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all ease-in-out 0.4s;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        &:hover {
+          filter: opacity(0.8);
+        }
+      }
+
+      .product_container {
+        // background-color: green;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: start;
+
+        .product_item {
+          margin: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 20%;
+          height: 50%;
+          //   background: #08124f;
+          border-radius: 50px;
+          padding: 20px;
+
+          .product_img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 100%;
+              height: 80%;
+            }
+          }
+          .product_description {
+            direction: rtl;
+            // color: #fff;
+          }
+          .product_add {
+            // color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .add_shop_list {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+              background-color: #aa0002;
+              padding: 5px 10px;
+              border-radius: 50px;
+              margin: 5px 0 10px 10px;
+              span {
+                font-size: 0.9rem;
+              }
+
+              .add_shopList_icon {
+                svg {
+                  color: #fff !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .filter_box {
+        // background-color: red;
+        padding: 1%;
+        direction: rtl;
+        width: 20%;
+        min-height: 300px;
+        position: sticky;
+        top: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: start;
+        flex-direction: column;
+        border: #aa0002 2px solid;
+        border-radius: 30px;
+
+        .filte_brand {
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .filte_color {
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .filter_price_range {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: start;
+          flex-direction: column;
+          margin: 10px 0;
+          .filter_price_range_title {
+            width: 100%;
+            margin: 10px 0;
+          }
+          .filte_min_price {
+            width: 100%;
+            margin: 10px 0;
+          }
+          .filte_max_price {
+            width: 100%;
+            margin: 10px 0;
+          }
+          .filter_radio_price {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
