@@ -42,9 +42,6 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <div className="imgContainer">
-                                        <img src={imgcart} alt=""/>
-                                    </div>
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -62,7 +59,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                        
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -80,7 +77,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -98,7 +95,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -116,7 +113,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -134,7 +131,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -152,7 +149,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -170,7 +167,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>
@@ -188,7 +185,7 @@ export default function Swaper() {
                             <div className="payment-bar-card">
                                 <p>۴۲.۹۰۰.۰۰۰ تومان</p>
                                 <div className="add-to-cart">
-                                    <img src={imgcart} alt=""/>
+                                 
                                     <p>افزودن به سبد خرید</p>
                                 </div>
                             </div>

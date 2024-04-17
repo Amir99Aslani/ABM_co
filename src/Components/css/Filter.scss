@@ -87,6 +87,13 @@
             direction: rtl;
             // color: #fff;
             font-family: "IRANSansMedium";
+            text-align: start;
+            max-height: 50px;
+            overflow: hidden;
+            position: relative;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
           }
           .product_add {
             // color: #fff;
@@ -203,7 +210,13 @@
 
         .amount_filter_product {
           margin: 20px 0;
-          font-family: "IRANSansMedium";
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span{
+            font-family: "IRANSansMedium";
+          }
         }
         .filter_type_product {
           margin: 20px 0;
