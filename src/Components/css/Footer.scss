@@ -2,6 +2,10 @@
   font-family: IRANSansMedium;
   src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
 }
+@font-face {
+  font-family: IRANSansRegular;
+  src: url("fonts/IRANSans/IRANSans Regular/IRANSans\ Regular.ttf");
+}
 
 .footerBar {
   z-index: 99;
@@ -15,7 +19,7 @@
   align-items: center;
   margin: 5% 0 0 0;
   padding: 0 0 2% 0;
-  font-family: IRANSansMedium;
+  font-family: IRANSansRegular;
 
   .info_container {
     display: flex;
@@ -23,7 +27,7 @@
     align-items: center;
     flex-direction: column;
     width: 50%;
-    font-family: IRANSansMedium;
+    font-family: IRANSansRegular;
     .logo {
     }
 
@@ -34,7 +38,7 @@
       align-items: center;
       margin: 10px;
       p {
-        font-family: IRANSansMedium;
+        font-family: IRANSansRegular;
       }
     }
 
@@ -45,7 +49,7 @@
       flex-direction: column;
       .social_media_title {
         margin: 10px;
-        font-family: IRANSansMedium;
+        font-family: IRANSansRegular;
       }
       .social_media_items {
         display: flex;
@@ -71,7 +75,7 @@
     align-items: center;
     flex-direction: column;
     width: 50%;
-    font-family: IRANSansMedium;
+    font-family: IRANSansRegular;
     .product_option {
       display: flex;
       justify-content: space-around;
@@ -89,10 +93,11 @@
       align-items: start;
       flex-direction: row;
       width: 100%;
+      font-size: 0.8rem;
       .link_item {
-        font-family: IRANSansMedium;
+        font-family: IRANSansRegular;
         p {
-          font-family: IRANSansMedium;
+          font-family: IRANSansRegular;
           cursor: pointer;
           margin: 3px 0;
           transition: all 0.5s ease-in-out;

@@ -60,6 +60,7 @@
         align-items: start;
 
         .product_item {
+          font-family: "IRANSansMedium";
           margin: 20px;
           display: flex;
           flex-direction: column;
@@ -85,6 +86,7 @@
           .product_description {
             direction: rtl;
             // color: #fff;
+            font-family: "IRANSansMedium";
           }
           .product_add {
             // color: #fff;
@@ -92,6 +94,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            font-family: "IRANSansMedium";
 
             .add_shop_list {
               display: flex;
@@ -104,6 +107,7 @@
               margin: 5px 0 10px 10px;
               span {
                 font-size: 0.9rem;
+                font-family: "IRANSansMedium";
               }
 
               .add_shopList_icon {
@@ -118,6 +122,7 @@
 
       .filter_box {
         // background-color: red;
+        font-family: "IRANSansMedium";
         padding: 1%;
         direction: rtl;
         width: 20%;
@@ -151,17 +156,75 @@
           .filter_price_range_title {
             width: 100%;
             margin: 10px 0;
+            font-family: "IRANSansMedium";
           }
-          .filte_min_price {
+          .filter_min_price {
             width: 100%;
             margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        
+            span {
+              text-align: center;
+              font-family: "IRANSansMedium";
+              .input_price {
+                width: 80%;
+                direction: ltr;
+                border: none;
+                border-bottom: 2px solid #0000003f;
+                padding: 5px;
+             
+              }
+            }
           }
-          .filte_max_price {
+          .filter_max_price {
             width: 100%;
             margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span {
+              text-align: center;
+              font-family: "IRANSansMedium";
+              .input_price {
+                width: 80%;
+                direction: ltr;
+                border: none;
+                border-bottom: 2px solid #0000003f;
+                padding: 5px;
+              }
+            }
           }
           .filter_radio_price {
             width: 100%;
+          }
+        }
+
+        .amount_filter_product {
+          margin: 20px 0;
+          font-family: "IRANSansMedium";
+        }
+        .filter_type_product {
+          margin: 20px 0;
+          font-family: "IRANSansMedium";
+        }
+        .submit_filter_container {
+          margin: 20px 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .submit_filter {
+            padding:  10px;
+            border-radius: 10px;
+            background-color: #a78e4fd1;
+            color: #ffffff;
+            border: none;
+            width: 80%;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: "IRANSansMedium";
           }
         }
       }

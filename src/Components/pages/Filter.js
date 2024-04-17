@@ -10,14 +10,39 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { alpha, styled } from "@mui/material/styles";
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
+import { NumericFormat } from "react-number-format";
+import NativeSelect from "@mui/material/NativeSelect";
 const AddInput = styled(FormControl)(({ theme }) => ({
   direction: "rtl",
   fontFamily: "revert-layer",
-
-  "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {},
+  border: "none",
+  "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
+    left: "0",
+    right:"90%"
+  },
+    "& .css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon": {
+    left: "0",
+    right:"90%"
+  },
+  "& .css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon ": {
+    left: "0",
+  },
+  "& .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused ": {
+    width: "100%",
+    transformOrigin: "top right",
+  },
+  "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root ": {
+    right: "0",
+    transformOrigin: "top right",
+  },
+    "& .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root  ": {
+    right: "0",
+    transformOrigin: "top right",
+  },
 }));
+
 
 export default function Filter() {
   const [age, setAge] = React.useState("");
@@ -27,13 +52,19 @@ export default function Filter() {
   };
   const dummy = ["Twenty", "red", "blue"];
 
-  const [value, setValue] = useState([20, 37]);
+  const [value, setValue] = useState([1000, 9000000]);
   function valuetext(value) {
     return `${value}°C`;
   }
   const handleChangeRadio = (event, newValue) => {
     setValue(newValue);
   };
+
+
+const handleFilter = (e)=>{
+e.preventDefault()
+console.log(e.target.selector.value)
+}
 
   return (
     <div className="mainContainer">
@@ -413,76 +444,115 @@ export default function Filter() {
               </div>
             </div>
           </div>
-          <div className="filter_box">
-            <div className="filte_brand">
-              <AddInput sx={{ m: 1, width: "90%" }}>
-                <InputLabel id="demo-simple-select-autowidth-label">
+          <form className="filter_box" onSubmit={handleFilter}>
+            <div className="filte_brand" style={{ direction: "rtl" }}>
+              <AddInput
+                style={{ direction: "rtl" }}
+                variant="standard"
+                sx={{ m: 1, width: "100%" }}
+              >
+                <InputLabel
+                  style={{ direction: "rtl" }}
+                  id="demo-simple-select-standard-label"
+                >
                   برند
                 </InputLabel>
                 <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
+
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
                   value={age}
                   onChange={handleChange}
-                  autoWidth
-                  label="Age"
+                  label="رنگ"
+                  name="selector"
                 >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  {dummy.map((e) => (
-                    <MenuItem value={10}>{e}</MenuItem>
-                  ))}
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </AddInput>
             </div>
             <div className="filte_color">
-              <FormControl sx={{ m: 1, width: "90%", direction: "rtl" }}>
+              <AddInput
+                style={{ direction: "rtl" }}
+                variant="standard"
+                sx={{ m: 1, width: "100%" }}
+              >
                 <InputLabel
-                  sx={{ direction: "rtl" }}
-                  id="demo-simple-select-autowidth-label"
+                  style={{ direction: "rtl" }}
+                  id="demo-simple-select-standard-label"
                 >
                   رنگ
                 </InputLabel>
                 <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
                   value={age}
                   onChange={handleChange}
-                  autoWidth
-                  label="Age"
+                  label="رنگ"
                 >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  {dummy.map((e) => (
-                    <MenuItem value={e}>{e}</MenuItem>
-                  ))}
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
-              </FormControl>
+              </AddInput>
             </div>
             <div className="filter_price_range">
               <p className="filter_price_range_title">محدوده قیمت</p>
-              <div className="filte_min_price">از</div>
-              <div className="filter_max_price">تا</div>
+              <div className="filter_min_price">
+                <span>از</span>
+                <span>
+                  <NumericFormat
+                    value={value[0]}
+                    thousandSeparator=","
+                    displayType="input"
+                    renderText={(value) => value}
+                    className="input_price"
+                  />
+                </span>
+                <span>تومان</span>
+              </div>
+              <div className="filter_max_price">
+                <span>تا</span>
+                <span>
+                  <NumericFormat
+                    value={value[1]}
+                    thousandSeparator=","
+                    displayType="input"
+                    renderText={(value) => value}
+                    className="input_price"
+                  />
+                </span>
+                <span>تومان</span>
+              </div>
               <div className="filter_radio_price">
-                <Box sx={{ width: "90%" , margin:"auto" }}>
+                <Box sx={{ width: "90%", margin: "auto" }}>
                   <Slider
-                    getAriaLabel={() => "Temperature range"}
+                    getAriaLabel={() => " range"}
                     value={value}
                     onChange={handleChangeRadio}
                     valueLabelDisplay="auto"
                     getAriaValueText={valuetext}
+                    min={0}
+                    max={10000000}
+                    step={100000}
                   />
                 </Box>
               </div>
             </div>
-
-            <div className=""></div>
-            <div className="amount_filter_product"></div>
-            <div className="filter_type_product"></div>
-            <div className=""></div>
-          </div>
+            <div className="amount_filter_product">نمایش موجودی</div>
+            <div className="filter_type_product">نوع</div>
+            <div className="">سیستم عامل</div>
+            <div className="submit_filter_container">
+              <button className="submit_filter" type="submit">اعمال فیلتر</button>
+            </div>
+          </form>
         </div>
       </div>
       <Footer />
