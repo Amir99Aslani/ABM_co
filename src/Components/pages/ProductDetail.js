@@ -22,7 +22,7 @@ export default function ProductDetail() {
               <button
                 onClick={(e) => {
                   const items = ref.current;
-                  items.scrollLeft += -20;
+                  items.scrollLeft += -50;
                 }}
               >
                 <svg
@@ -68,7 +68,7 @@ export default function ProductDetail() {
               <button
                 onClick={(e) => {
                   const items = ref.current;
-                  items.scrollLeft += 20;
+                  items.scrollLeft += 50;
                 }}
               >
                 <svg
@@ -109,9 +109,7 @@ export default function ProductDetail() {
                 </svg>
               </button>
             </div>
-            <button className="add_shopCart_btn">
-            افزودن به سبد خرید
-            </button>
+            <button className="add_shopCart_btn">افزودن به سبد خرید</button>
           </div>
 
           <div className="product_desc_container">
@@ -170,12 +168,11 @@ export default function ProductDetail() {
                 <div className="show_more_BG">
                   <span></span>
                   <button onClick={() => setShowMore(!showMore)}>
-                    مشاهده تمام ویژگی ها
+                    {showMore ? "بستن" : "  مشاهده تمام ویژگی ها"}
                   </button>
                   <span></span>
                 </div>
-                <br />
-                <br />
+
                 <div
                   className={`more_desc ${showMore ? "show_more" : undefined}`}
                 >
@@ -235,6 +232,7 @@ export default function ProductDetail() {
               }}
             >
               <div className="users_idea_container">
+                <h3>نظرات کاربران</h3>
                 <div className="user_idea_item">
                   <div className="text_rate">
                     <p className="star"></p>

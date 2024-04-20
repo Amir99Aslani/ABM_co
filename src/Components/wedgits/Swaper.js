@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Swaper.scss";
 import {Swiper, SwiperSlide} from "swiper/react";
-import imgcard from "../css/images/Frame 13 (1).png";
+import imgcard from "../css/images/Frame 13.svg";
 import imgcart from "../css/images/Vector (6).svg";
 
 

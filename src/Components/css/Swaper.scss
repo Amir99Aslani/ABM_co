@@ -18,14 +18,14 @@
 
     .card {
       background-color: #08124f;
-      border-radius: 50px;
+      border-radius: 25px;
       height: 100%;
       width: 95%;
       color: white;
       direction: rtl;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       flex-direction: column;
       padding: 15px;
 
@@ -57,7 +57,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        padding: 5px;
+        // padding: 5px;
         width: 100%;
 
         p {
@@ -77,8 +77,8 @@
           border-radius: 10px;
           color: black;
           width: 90%;
-          height: 50px;
-          margin: 10px;
+          height: 40px;
+          // margin: 10px;
 
           .imgContainer{
             width: 30%;
