@@ -21,6 +21,7 @@ const AddInput = styled(FormControl)(({ theme }) => ({
   direction: "rtl",
   fontFamily: "revert-layer",
   border: "none",
+  fontFamily: "IRANSansMedium",
   "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
     left: "0",
     right: "90%",
@@ -39,6 +40,8 @@ const AddInput = styled(FormControl)(({ theme }) => ({
   "& .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root ": {
     right: "0",
     transformOrigin: "top right",
+    fontFamily: "IRANSansMedium",
+    fontSize:'0.9rem',
   },
   "& .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root  ": {
     right: "0",
@@ -49,7 +52,7 @@ const AddInput = styled(FormControl)(({ theme }) => ({
 const AddSwitch = styled(Switch)(({ theme }) => ({
   color: "red",
   "& .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked ": {
-    color: "red",
+    color: "#AA0002",
   },
   "& .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track":
     {
@@ -666,13 +669,14 @@ export default function Filter() {
                   onChange={handleChange}
                   label="رنگ"
                   name="selector"
+            
                 >
-                  <MenuItem value="">
+                  <MenuItem value="" dir="rtl">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem  dir="rtl" value={10}>Ten</MenuItem>
+                  <MenuItem  dir="rtl" value={20}>Twenty</MenuItem>
+                  <MenuItem  dir="rtl" value={30}>Thirty</MenuItem>
                 </Select>
               </AddInput>
             </div>
@@ -695,12 +699,12 @@ export default function Filter() {
                   onChange={handleChange}
                   label="رنگ"
                 >
-                  <MenuItem value="">
+                  <MenuItem   dir="rtl" value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem  dir="rtl" value={10}>Ten</MenuItem>
+                  <MenuItem  dir="rtl" value={20}>Twenty</MenuItem>
+                  <MenuItem  dir="rtl" value={30}>Thirty</MenuItem>
                 </Select>
               </AddInput>
             </div>

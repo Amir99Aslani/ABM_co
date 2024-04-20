@@ -88,7 +88,7 @@
             // color: #fff;
             font-family: "IRANSansMedium";
             text-align: start;
-            max-height: 50px;
+            max-height:70px;
             overflow: hidden;
             position: relative;
             display: -webkit-box;
@@ -102,7 +102,10 @@
             justify-content: center;
             align-items: center;
             font-family: "IRANSansMedium";
-
+            span{
+              text-align: start;
+              width: 100%;
+            }
             .add_shop_list {
               display: flex;
               justify-content: center;
@@ -110,14 +113,18 @@
               color: #fff;
               background-color: #aa0002;
               padding: 5px 10px;
-              border-radius: 50px;
+              border-radius: 10px;
               margin: 5px 0 10px 10px;
+              width: 100%;
               span {
                 font-size: 0.9rem;
                 font-family: "IRANSansMedium";
+                text-align: center;
+                width: 80%;
               }
 
               .add_shopList_icon {
+                width: 20%;
                 svg {
                   color: #fff !important;
                 }
@@ -245,6 +252,10 @@
   }
 
   .product_description{
+    font-size: 0.9rem;
+    text-align: justify;
+
+    line-height: 2rem;
     width: 90%;
     direction: rtl;
     text-align: justify;
