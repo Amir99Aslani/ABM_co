@@ -2,6 +2,7 @@ import React, { createContext, useState, Suspense } from "react";
 import LoadingSpinner from "./Components/wedgits/LoadingSpinner";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
+import ProductDetail from "./Components/pages/ProductDetail";
 
 export const LoginContext = createContext();
 
@@ -46,7 +47,16 @@ const Root = (props) => {
           }
           exact
           path="/filter"
-        />
+        />  
+        <Route
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProductDetail />
+          </Suspense>
+        }
+        exact
+        path="/productDetail"
+      />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </LoginContext.Provider>
