@@ -15,6 +15,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .coassist{
+    position: fixed;
+    left:10px;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+
+    svg{
+      cursor: pointer;
+      margin:5px 10px;
+    }
+  }
 
   .mainContent {
     width: 90%;
