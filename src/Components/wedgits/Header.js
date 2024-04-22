@@ -3,6 +3,10 @@ import "../css/Header.scss";
 import logoheader from "../css/images/logoheader.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
+
+
 
 function Header(props) {
   const { width, height } = useWindowDimensions();
@@ -220,7 +224,7 @@ function Header(props) {
               <input type="radio" name="slider" id="close-btn" />
               <ul className="nav-links">
                 <label htmlFor="close-btn" className="btn close-btn">
-                  <i className="fas fa-times" />
+                  <IoClose style={{fontSize:"2rem"}}/>
                 </label>
                 <li onClick={()=>setOpenDrop(!openDrop)}>
                   <a href="#" className={`desktop-item  ${openDrop ? 'show' : undefined}`}>
@@ -320,7 +324,7 @@ function Header(props) {
                 </li>
               </ul>
               <label htmlFor="menu-btn" className="btn menu-btn">
-                <i className="fas fa-bars" />
+               <GiHamburgerMenu style={{fontSize:"2rem"}}/>
               </label>
             </div>
           </nav>
