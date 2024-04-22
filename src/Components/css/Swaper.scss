@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: IRANSansMedium;
   src: url("fonts/IRANSans/IRANSans Medium/IRANSans Medium.ttf");
@@ -38,7 +37,7 @@
         }
       }
 
-      .merchandise{
+      .merchandise {
         font-family: IRANSansMedium;
         font-size: 14px;
         margin: 10px 0;
@@ -48,7 +47,7 @@
         position: relative;
         display: -webkit-box;
         -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical
+        -webkit-box-orient: vertical;
       }
 
       .payment-bar-card {
@@ -80,7 +79,7 @@
           height: 40px;
           // margin: 10px;
 
-          .imgContainer{
+          .imgContainer {
             width: 30%;
             img {
               width: 25px;
@@ -90,11 +89,120 @@
 
           p {
             width: 100%;
-            text-align: center
+            text-align: center;
           }
-
         }
       }
     }
   }
 }
+
+@media screen and (max-width: 1185px) {
+  .main-container-swaper {
+    .mySwiper {
+      .card {
+        .imgContainer {
+          img {
+          }
+        }
+
+        .merchandise {
+          font-size: 0.8rem;
+        }
+
+        .payment-bar-card {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .add-to-cart {
+            .imgContainer {
+              img {
+              }
+            }
+
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  .main-container-swaper {
+    .mySwiper {
+      .card {
+        .imgContainer {
+          img {
+          }
+        }
+
+        .merchandise {
+          font-size: 0.8rem;
+        }
+
+        .payment-bar-card {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .add-to-cart {
+            .imgContainer {
+              img {
+              }
+            }
+
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .main-container-swaper {
+
+//   .mySwiper {
+
+//     .card {
+
+//       .imgContainer {
+
+//         img {
+
+//         }
+//       }
+
+//       .merchandise{
+
+//       }
+
+//       .payment-bar-card {
+
+//         p {
+
+//         }
+
+//         .add-to-cart {
+
+//           .imgContainer{
+
+//             img {
+
+//             }
+//           }
+
+//           p {
+
+//           }
+
+//         }
+//       }
+//     }
+//   }
+// }

@@ -24,7 +24,7 @@ export default function Swaper() {
                 <Swiper
                     loop={true}
 
-                    slidesPerView={width > 700 ? 5 : 2}
+                    slidesPerView={width > 1200 ? 5 : width > 800 ? 4 : width > 750 ? 3 : 2}
 
                     freeMode={true}
                     modules={[Autoplay, Pagination]}
