@@ -6,11 +6,9 @@ import useWindowDimensions from "../wedgits/useWindowDimensions";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 
-
-
 function Header(props) {
   const { width, height } = useWindowDimensions();
-  const [openDrop,setOpenDrop]=useState(false)
+  const [openDrop, setOpenDrop] = useState(false);
   return (
     <>
       <div className="navHeader">
@@ -85,6 +83,16 @@ function Header(props) {
                   {/* <div className="logo_header">
                 <img src={logoheader} />
               </div> */}
+                  {width > 1170 && (
+                    <div className="searchBox_container">
+                      <div className="search_input">
+                        <input placeholder="جستوجو" />
+                      </div>
+                      <div className="search_icon">
+                        <IoSearchSharp />
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <input type="radio" name="slider" id="menu-btn" />
@@ -200,143 +208,172 @@ function Header(props) {
                   <i className="fas fa-bars" />
                 </label>
               </div>
+              {width < 1170 && (
+                    <div className="searchBox_container">
+                      <div className="search_input">
+                        <input placeholder="جستوجو" />
+                      </div>
+                      <div className="search_icon">
+                        <IoSearchSharp />
+                      </div>
+                    </div>
+                  )}
+            </nav>
+          </>
+        ) : (
+          <>
+            <nav>
+              <div className="navBar">
+                <div className="header_items">
+                  <div className="logo_header">
+                    <img src={logoheader} />
+                  </div>
+                </div>
+
+                <input type="radio" name="slider" id="menu-btn" />
+                <input type="radio" name="slider" id="close-btn" />
+                <ul className="nav-links">
+                  <label htmlFor="close-btn" className="btn close-btn">
+                    <IoClose style={{ fontSize: "2rem" }} />
+                  </label>
+                  <li>
+                    <a
+                      href="#"
+                      className={`desktop-item`}
+                    >
+                      لوازم جانبی
+                    </a>
+                    <input type="checkbox" id="showDrop" />
+                    <label htmlFor="showDrop" className="mobile-item">
+                      لوازم جانبی
+                    </label>
+                    <ul className="drop-menu">
+                      <li>
+                        <a href="#">Drop menu 1</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 2</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 3</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 4</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="desktop-item"
+                    >
+                      دسته بندی
+                    </a>
+                    <input type="checkbox" id="showMega" />
+                    <label htmlFor="showMega" className="mobile-item">
+                      دسته بندی
+                    </label>
+                    <div className={`mega-box`}>
+                      <div className="content">
+                        <div className="row">
+                          <img
+                            src="https://fadzrinmadu.github.io/hosted-assets/responsive-mega-menu-and-dropdown-menu-using-only-html-and-css/img.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="row">
+                          <header>Design Services</header>
+                          <ul className="mega-links">
+                            <li>
+                              <a href="#">Graphics</a>
+                            </li>
+                            <li>
+                              <a href="#">Vectors</a>
+                            </li>
+                            <li>
+                              <a href="#">Business cards</a>
+                            </li>
+                            <li>
+                              <a href="#">Custom logo</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="row">
+                          <header>Email Services</header>
+                          <ul className="mega-links">
+                            <li>
+                              <a href="#">Personal Email</a>
+                            </li>
+                            <li>
+                              <a href="#">Business Email</a>
+                            </li>
+                            <li>
+                              <a href="#">Mobile Email</a>
+                            </li>
+                            <li>
+                              <a href="#">Web Marketing</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="row">
+                          <header>Security services</header>
+                          <ul className="mega-links">
+                            <li>
+                              <a href="#">Site Seal</a>
+                            </li>
+                            <li>
+                              <a href="#">VPS Hosting</a>
+                            </li>
+                            <li>
+                              <a href="#">Privacy Seal</a>
+                            </li>
+                            <li>
+                              <a href="#">Website design</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li onClick={() => setOpenDrop(!openDrop)}>
+                    <a
+                      href="#"
+                      className={`desktop-item`}
+                    >
+                      پروفایل
+                    </a>
+                    <input type="checkbox" id="showDrop" />
+                    <label className="mobile-item">پروفایل</label>
+                    <ul className="drop-menu">
+                      <li>
+                        <a href="#">Drop menu 1</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 2</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 3</a>
+                      </li>
+                      <li>
+                        <a href="#">Drop menu 4</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <label htmlFor="menu-btn" className="btn menu-btn">
+                  <GiHamburgerMenu style={{ fontSize: "2rem" }} />
+                </label>
+              </div>
             </nav>
             <div className="searchBox_container">
               <div className="search_input">
-                <input placeholder="جستوجو" />{" "}
+                <input placeholder="جستوجو" />
               </div>
               <div className="search_icon">
                 <IoSearchSharp />
               </div>
             </div>
           </>
-        ) : (
-          <>
-          <nav>
-            <div className="navBar">
-              <div className="header_items">
-                <div className="logo_header">
-              <img src={logoheader} />
-            </div>
-              </div>
-
-              <input type="radio" name="slider" id="menu-btn" />
-              <input type="radio" name="slider" id="close-btn" />
-              <ul className="nav-links">
-                <label htmlFor="close-btn" className="btn close-btn">
-                  <IoClose style={{fontSize:"2rem"}}/>
-                </label>
-                <li onClick={()=>setOpenDrop(!openDrop)}>
-                  <a href="#" className={`desktop-item  ${openDrop ? 'show' : undefined}`}>
-                    لوازم جانبی
-                  </a>
-                  <input type="checkbox" id="showDrop" />
-                  <label htmlFor="showDrop" className="mobile-item">
-                    لوازم جانبی
-                  </label>
-                  <ul className="drop-menu">
-                    <li>
-                      <a href="#">Drop menu 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Drop menu 2</a>
-                    </li>
-                    <li>
-                      <a href="#">Drop menu 3</a>
-                    </li>
-                    <li>
-                      <a href="#">Drop menu 4</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#" className="desktop-item" onClick={()=>setOpenDrop(!openDrop)}>
-                   دسته بندی
-                  </a>
-                  <input type="checkbox" id="showMega" />
-                  <label htmlFor="showMega" className="mobile-item">
-                  دسته بندی
-                  </label>
-                  <div className={`mega-box`}>
-                    <div className="content">
-                      <div className="row">
-                        <img
-                          src="https://fadzrinmadu.github.io/hosted-assets/responsive-mega-menu-and-dropdown-menu-using-only-html-and-css/img.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="row">
-                        <header>Design Services</header>
-                        <ul className="mega-links">
-                          <li>
-                            <a href="#">Graphics</a>
-                          </li>
-                          <li>
-                            <a href="#">Vectors</a>
-                          </li>
-                          <li>
-                            <a href="#">Business cards</a>
-                          </li>
-                          <li>
-                            <a href="#">Custom logo</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="row">
-                        <header>Email Services</header>
-                        <ul className="mega-links">
-                          <li>
-                            <a href="#">Personal Email</a>
-                          </li>
-                          <li>
-                            <a href="#">Business Email</a>
-                          </li>
-                          <li>
-                            <a href="#">Mobile Email</a>
-                          </li>
-                          <li>
-                            <a href="#">Web Marketing</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="row">
-                        <header>Security services</header>
-                        <ul className="mega-links">
-                          <li>
-                            <a href="#">Site Seal</a>
-                          </li>
-                          <li>
-                            <a href="#">VPS Hosting</a>
-                          </li>
-                          <li>
-                            <a href="#">Privacy Seal</a>
-                          </li>
-                          <li>
-                            <a href="#">Website design</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">پروفایل</a>
-                </li>
-              </ul>
-              <label htmlFor="menu-btn" className="btn menu-btn">
-               <GiHamburgerMenu style={{fontSize:"2rem"}}/>
-              </label>
-            </div>
-          </nav>
-          <div className="searchBox_container">
-            <div className="search_input">
-              <input placeholder="جستوجو" />
-            </div>
-            <div className="search_icon">
-              <IoSearchSharp />
-            </div>
-          </div>
-        </>
         )}
       </div>
     </>
