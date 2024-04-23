@@ -88,7 +88,7 @@
         align-items: center;
         flex-wrap: wrap;
         width: 90vw;
-        height: 150px;
+        height: 135px;
         cursor: pointer;
         .brandsCard {
           display: flex;
@@ -181,14 +181,21 @@
       .accessoriesCardContainer {
         margin: auto;
         display: flex;
-        width: fit-content;
+        justify-content: strat;
+        align-items: center;
+        overflow: scroll;
+        width: 80vw;
+        height: 150px;
         cursor: pointer;
-
+        &::-webkit-scrollbar{
+          display: none;
+        }
         .brandsCard {
           display: flex;
           background: #fff;
           padding: 10px;
           width: 100px;
+          min-width:100px ;
           height: 100px;
           margin: 0 15px;
           border-radius: 50%;
@@ -401,12 +408,19 @@
       .merchandiseDataContainer {
         direction: rtl;
 
+
         .merchandiseDataBtn {
           &:hover {
           }
         }
 
         .merchandiseDataIssues {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: auto;
+          width: 80vw;
           .DataIssue {
             .imgContainer {
               img {
@@ -425,6 +439,7 @@
 
         .merchandiseDataImg {
           &:before {
+            // background-image: none;
           }
 
           h5 {
