@@ -344,20 +344,6 @@ function Header(props) {
                     </a>
                     <input type="checkbox" id="showDrop" />
                     <label className="mobile-item">پروفایل</label>
-                    <ul className="drop-menu">
-                      <li>
-                        <a href="#">Drop menu 1</a>
-                      </li>
-                      <li>
-                        <a href="#">Drop menu 2</a>
-                      </li>
-                      <li>
-                        <a href="#">Drop menu 3</a>
-                      </li>
-                      <li>
-                        <a href="#">Drop menu 4</a>
-                      </li>
-                    </ul>
                   </li>
                 </ul>
                 <label htmlFor="menu-btn" className="btn menu-btn">

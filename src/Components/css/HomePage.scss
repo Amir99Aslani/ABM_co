@@ -41,7 +41,7 @@
       .favoriteMobileBtn {
         border-radius: 10px;
         background: #08124f;
-        margin: auto;
+        margin: 20px auto;
         outline: none;
         border: none;
         color: #ffffff;
@@ -159,6 +159,10 @@
     }
 
     .accessoriesContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       .accessoriesBtn {
         border-radius: 10px;
         background: #08124f;
@@ -181,7 +185,7 @@
       .accessoriesCardContainer {
         margin: auto;
         display: flex;
-        justify-content: strat;
+        justify-content: center;
         align-items: center;
         overflow: scroll;
         width: 80vw;
@@ -509,6 +513,7 @@
         }
 
         .accessoriesCardContainer {
+          justify-content: start;
           .brandsCard {
             img {
             }
