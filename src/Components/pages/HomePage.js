@@ -6,11 +6,20 @@ import Slider from "../wedgits/Slider";
 import Swaper from "../wedgits/Swaper";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import { useDraggable } from "react-use-draggable-scroll";
+import imgslider from "../css/images/f9f2d9c459c927461e22e5468465e638.jpg";
 
 function HomePage(props) {
   const { width, height } = useWindowDimensions();
   const ref = useRef();
-  const { events } =  useDraggable(ref);
+  const { events } = useDraggable(ref);
+  const imgProps = [
+    imgslider,
+    imgslider,
+    imgslider,
+    imgslider,
+    imgslider,
+    imgslider,
+  ];
 
   return (
     <div className="mainContainer">
@@ -391,22 +400,9 @@ function HomePage(props) {
         <br />
 
         {width < 1200 ? (
-          <div className="BestSellingProducts best_res" {...events} ref={ref}>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-          </div>
+          <Swaper imgGP={imgProps} />
         ) : (
-          <div className="BestSellingProducts"  {...events} ref={ref}>
+          <div className="BestSellingProducts">
             <div style={{ display: "flex", justifyContent: "center" }}>
               <div className="cards btn">
                 <p>پرفروش‌ ترین محصولات</p>
@@ -443,7 +439,7 @@ function HomePage(props) {
 
         <div className="accessoriesContainer">
           <div style={{ display: "flex" }}>
-            <button className="accessoriesBtn">لوازم جانبی</button>
+            <button className="accessoriesBtn">دسته بندی محصولات</button>
           </div>
           <br />
           <div style={{ display: "flex" }}>
@@ -470,6 +466,7 @@ function HomePage(props) {
             <div className="accessoriesCardContainer" {...events} ref={ref}>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />

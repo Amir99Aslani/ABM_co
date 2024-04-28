@@ -5,7 +5,7 @@
 
 .main-container-swaper {
   width: 100%;
-  min-height: 400px;
+  height: 400px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -14,11 +14,12 @@
 
   .mySwiper {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
+    height: 90%;
     .card {
       background-color: #08124f;
       border-radius: 25px;
-      height: 100%;
       width: 95%;
       color: white;
       direction: rtl;
@@ -27,13 +28,14 @@
       justify-content: space-between;
       flex-direction: column;
       padding: 15px;
-
+      height: 100%;
       .imgContainer {
         height: 50%;
         width: 95%;
         img {
           height: 100%;
           width: 100%;
+          border-radius: 20px;
         }
       }
 
@@ -131,9 +133,10 @@
   }
 }
 
-@media screen and (max-width: 1185px) {
+@media screen and (max-width: 750px) {
   .main-container-swaper {
     .mySwiper {
+      height: 80%;
       .card {
         .imgContainer {
           img {
@@ -141,22 +144,23 @@
         }
 
         .merchandise {
-          font-size: 0.8rem;
+          font-size: 0.7rem;
         }
 
         .payment-bar-card {
           p {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
           }
 
           .add-to-cart {
+            width: 100%;
             .imgContainer {
               img {
               }
             }
 
             p {
-              font-size: 0.8rem;
+              font-size: 0.7rem;
             }
           }
         }

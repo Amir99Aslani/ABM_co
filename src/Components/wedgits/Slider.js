@@ -29,6 +29,7 @@ export default function Slider() {
           modules={[Navigation, Pagination, Mousewheel, Keyboard , Autoplay]}
           className="slider"
         >
+  
           <SwiperSlide>
             <img className="img-slider" src={imgslider} alt="" />
           </SwiperSlide>

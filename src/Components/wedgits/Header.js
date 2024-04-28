@@ -86,7 +86,7 @@ function Header(props) {
                   {width > 1170 && (
                     <div className="searchBox_container">
                       <div className="search_input">
-                        <input placeholder="جستوجو" />
+                        <input placeholder="جستجو" />
                       </div>
                       <div className="search_icon">
                         <IoSearchSharp />
@@ -209,7 +209,7 @@ function Header(props) {
               {width < 1170 && (
                 <div className="searchBox_container">
                   <div className="search_input">
-                    <input placeholder="جستوجو" />
+                    <input placeholder="جستجو" />
                   </div>
                   <div className="search_icon">
                     <IoSearchSharp />
@@ -342,7 +342,7 @@ function Header(props) {
             </nav>
             <div className="searchBox_container">
               <div className="search_input">
-                <input placeholder="جستوجو" />
+                <input placeholder="جستجو" />
               </div>
               <div className="search_icon">
                 <IoSearchSharp />
