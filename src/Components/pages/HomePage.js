@@ -470,18 +470,35 @@ function HomePage(props) {
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
               <div className="brandsCard">
                 <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
+              </div>
+              <div className="brandsCard">
+                <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
+              </div>
+              <div className="brandsCard">
+                <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
+              </div>
+              <div className="brandsCard">
+                <img src="./Frame 20.png" alt="" />
+                <p>sample</p>
               </div>
             </div>
           </div>
