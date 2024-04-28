@@ -269,6 +269,47 @@
         .symbol_item {
         }
       }
+      .footer_links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin: 30px 100px 0 0;
+        .link_item {
+          height: 40px;
+          overflow: hidden;
+          text-align: start;
+          transition: all 0.3s ease;
+          &.more {
+            height: 210px;
+
+            p {
+              &:first-child {
+                svg {
+                  // transform: rotate(360deg);
+                }
+              }
+            }
+          }
+          &.more_about {
+            height: 300px;
+            p {
+              &:first-child {
+                svg {
+                  // transform: rotate(360deg);
+                }
+              }
+            }
+          }
+          p {
+            &:first-child {
+              
+            }
+            &:hover {
+            }
+          }
+        }
+      }
     }
 
     .navbar_footer {
@@ -328,9 +369,13 @@
 
 @media screen and (max-width: 670px) {
   .footerBar {
-    height: 50vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     .info_container {
-      width: 60%;
+      width: 100%;
       .product_option {
         display: flex;
         justify-content: center;
@@ -380,6 +425,7 @@
       }
 
       .symbols {
+        margin: 10px 0;
         .symbol_item {
           display: inline-block;
           width: 50px;
@@ -390,37 +436,27 @@
           }
         }
       }
-    }
 
-    .navbar_footer {
-      width: 20%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-
-      .product_option {
-        .option_item {
-        }
-      }
       .footer_links {
+        direction: rtl;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        margin: 30px 100px 0 0;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin:20px auto;
         .link_item {
-          height: 40px;
+          height: 30px;
           overflow: hidden;
-          text-align: start;
+          text-align: center;
           transition: all 0.3s ease;
           &.more {
-            height: 210px;
+            height: 220px;
 
             p {
               &:first-child {
                 svg {
-                  transform: rotate(360deg);
+                  // transform: rotate(360deg);
                 }
               }
             }
@@ -430,19 +466,38 @@
             p {
               &:first-child {
                 svg {
-                  transform: rotate(360deg);
+                  // transform: rotate(360deg);
                 }
               }
             }
           }
           p {
+            cursor: pointer;
+            font-size: 0.7rem;
+           margin: 5px;
             &:first-child {
+              color: #211eb2;
+              margin:10px 0 ;
             }
             &:hover {
             }
           }
         }
       }
+    }
+
+    .navbar_footer {
+      width: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      .product_option {
+        .option_item {
+        }
+      }
+ 
     }
   }
 }

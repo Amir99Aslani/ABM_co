@@ -464,42 +464,43 @@ function HomePage(props) {
               </div>
             </div> */}
             <div className="accessoriesCardContainer" {...events} ref={ref}>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
+              <div className="brandsCard_container">
+                <div className="brandsCard">
+                  <img src="./Frame 20.png" alt="" />
+                </div>
                 <p>sample</p>
               </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
-                <p>sample</p>
-              </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
-                <p>sample</p>
-              </div>
-              <div className="brandsCard">
-                <img src="./Frame 20.png" alt="" />
-                <p>sample</p>
-              </div>
+              
             </div>
           </div>
         </div>
