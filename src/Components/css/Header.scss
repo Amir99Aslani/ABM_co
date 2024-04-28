@@ -907,7 +907,7 @@ nav input {
   }
 
   .navHeader {
-    margin: 30px auto;
+    margin: 30px auto 10px auto;
     width: 95%;
     padding: 0px 5px;
     line-height: 70px;
@@ -968,7 +968,7 @@ nav input {
     font-weight: 600;
     text-decoration: none;
     direction: rtl;
-    margin: 25px;
+    margin: 25px auto 10px auto;
     .search_input {
       font-size: 0.9rem;
       margin-right: 5px;
