@@ -242,7 +242,7 @@ function Header(props) {
                     <label htmlFor="showDrop" className="mobile-item">
                       لوازم جانبی
                     </label>
-                    <ul className="drop-menu">
+                    {/* <ul className="drop-menu">
                       <li>
                         <a href="#">Drop menu 1</a>
                       </li>
@@ -255,7 +255,7 @@ function Header(props) {
                       <li>
                         <a href="#">Drop menu 4</a>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li>
                     <a href="#" className="desktop-item">
@@ -265,7 +265,7 @@ function Header(props) {
                     <label htmlFor="showMega" className="mobile-item">
                       دسته بندی
                     </label>
-                    <div className={`mega-box`}>
+                    {/* <div className={`mega-box`}>
                       <div className="content">
                         <div className="row">
                           <img
@@ -325,7 +325,7 @@ function Header(props) {
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </li>
                   <li onClick={() => setOpenDrop(!openDrop)}>
                     <a href="#" className={`desktop-item`}>
