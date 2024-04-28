@@ -342,7 +342,7 @@
   }
 }
 
-@media screen and (max-width: 1185px) {
+@media screen and (max-width: 1200px) {
   .mainContainer {
     .coassist {
       svg {
@@ -381,7 +381,16 @@
       }
 
       .BestSellingProducts {
+        &.best_res{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: scroll;
+          width: 40vw;
+        }
         .cards {
+          width: 300px;
+          min-width: 300px;
           &:hover {
           }
 

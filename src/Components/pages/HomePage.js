@@ -10,7 +10,7 @@ import { useDraggable } from "react-use-draggable-scroll";
 function HomePage(props) {
   const { width, height } = useWindowDimensions();
   const ref = useRef();
-  const { events } = useDraggable(ref);
+  const { events } =  useDraggable(ref);
 
   return (
     <div className="mainContainer">
@@ -390,10 +390,10 @@ function HomePage(props) {
         <br />
         <br />
 
-        {/* <div className="BestSellingProducts">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="cards btn">
-              <p>پرفروش‌ ترین محصولات</p>
+        {width < 1200 ? (
+          <div className="BestSellingProducts best_res" {...events} ref={ref}>
+            <div className="cards">
+              <img src="./sample.jpeg" />
             </div>
             <div className="cards">
               <img src="./sample.jpeg" />
@@ -405,22 +405,39 @@ function HomePage(props) {
               <img src="./sample.jpeg" />
             </div>
           </div>
+        ) : (
+          <div className="BestSellingProducts"  {...events} ref={ref}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="cards btn">
+                <p>پرفروش‌ ترین محصولات</p>
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+            </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
-            </div>
-            <div className="cards">
-              <img src="./sample.jpeg" />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
+              <div className="cards">
+                <img src="./sample.jpeg" />
+              </div>
             </div>
           </div>
-        </div> */}
+        )}
 
         <br />
 

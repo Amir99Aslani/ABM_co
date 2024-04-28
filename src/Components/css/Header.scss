@@ -236,6 +236,9 @@ nav .navBar {
   padding: 0 15px 0 0;
   font-weight: 400;
   border-radius: 0px;
+  display: flex;
+  justify-content:end;
+  align-items: center;
 }
 
 .mega-box {

@@ -102,18 +102,18 @@ function Header(props) {
                     <i className="fas fa-times" />
                   </label>
                   <li>
-                    <a href="#">لوازم جانبی</a>
+                    <a href="#">سوالات متداول</a>
                   </li>
                   <li>
                     <a href="#">لوازم جانبی</a>
                   </li>
                   <li>
                     <a href="#" className="desktop-item">
-                      لوازم جانبی
+                      برند ها
                     </a>
                     <input type="checkbox" id="showDrop" />
                     <label htmlFor="showDrop" className="mobile-item">
-                      لوازم جانبی
+                      برند ها
                     </label>
                     <ul className="drop-menu">
                       <li>
@@ -132,11 +132,11 @@ function Header(props) {
                   </li>
                   <li>
                     <a href="#" className="desktop-item">
-                      لوازم جانبی
+                      دسته بندی
                     </a>
                     <input type="checkbox" id="showMega" />
                     <label htmlFor="showMega" className="mobile-item">
-                      لوازم جانبی
+                      دسته بندی
                     </label>
                     <div className="mega-box">
                       <div className="content">
@@ -200,24 +200,22 @@ function Header(props) {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <a href="#">لوازم جانبی</a>
-                  </li>
+
                 </ul>
                 <label htmlFor="menu-btn" className="btn menu-btn">
                   <i className="fas fa-bars" />
                 </label>
               </div>
               {width < 1170 && (
-                    <div className="searchBox_container">
-                      <div className="search_input">
-                        <input placeholder="جستوجو" />
-                      </div>
-                      <div className="search_icon">
-                        <IoSearchSharp />
-                      </div>
-                    </div>
-                  )}
+                <div className="searchBox_container">
+                  <div className="search_input">
+                    <input placeholder="جستوجو" />
+                  </div>
+                  <div className="search_icon">
+                    <IoSearchSharp />
+                  </div>
+                </div>
+              )}
             </nav>
           </>
         ) : (
@@ -237,10 +235,7 @@ function Header(props) {
                     <IoClose style={{ fontSize: "2rem" }} />
                   </label>
                   <li>
-                    <a
-                      href="#"
-                      className={`desktop-item`}
-                    >
+                    <a href="#" className={`desktop-item`}>
                       لوازم جانبی
                     </a>
                     <input type="checkbox" id="showDrop" />
@@ -263,10 +258,7 @@ function Header(props) {
                     </ul>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="desktop-item"
-                    >
+                    <a href="#" className="desktop-item">
                       دسته بندی
                     </a>
                     <input type="checkbox" id="showMega" />
@@ -336,10 +328,7 @@ function Header(props) {
                     </div>
                   </li>
                   <li onClick={() => setOpenDrop(!openDrop)}>
-                    <a
-                      href="#"
-                      className={`desktop-item`}
-                    >
+                    <a href="#" className={`desktop-item`}>
                       پروفایل
                     </a>
                     <input type="checkbox" id="showDrop" />
