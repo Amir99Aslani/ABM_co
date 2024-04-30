@@ -101,25 +101,152 @@ export default function Filter() {
         }}
         overlayProps={{
           style: {
-            zIndex: 1000000,
+            zIndex: 1000,
+            background: "#D9D9D991",
           },
         }}
         contentProps={{
           style: {
             padding: 0,
             borderRadius: "20px",
-            backgroundColor: "red",
-            height: "40vh",
-            width: "50vw",
+            background: "#FFFFFFE5",
+            height: "70vh",
+            width: "60vw",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width:"30vw"
+            border: "#AA0002 solid 2px ",
           },
         }}
       >
-        sadsad
+           <form className="filter_box" onSubmit={handleFilter}>
+            <div className="filte_brand" style={{ direction: "rtl" }}>
+              <AddInput
+                style={{ direction: "rtl" }}
+                variant="standard"
+                sx={{ m: 1, width: "100%" }}
+              >
+                <InputLabel
+                  style={{ direction: "rtl" }}
+                  id="demo-simple-select-standard-label"
+                >
+                  برند
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={age}
+                  onChange={handleChange}
+                  label="رنگ"
+                  name="selector"
+                >
+                  <MenuItem value="" dir="rtl">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={10}>
+                    Ten
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={20}>
+                    Twenty
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={30}>
+                    Thirty
+                  </MenuItem>
+                </Select>
+              </AddInput>
+            </div>
+            <div className="filte_color">
+              <AddInput
+                style={{ direction: "rtl" }}
+                variant="standard"
+                sx={{ m: 1, width: "100%" }}
+              >
+                <InputLabel
+                  style={{ direction: "rtl" }}
+                  id="demo-simple-select-standard-label"
+                >
+                  رنگ
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={age}
+                  onChange={handleChange}
+                  label="رنگ"
+                >
+                  <MenuItem dir="rtl" value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={10}>
+                    Ten
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={20}>
+                    Twenty
+                  </MenuItem>
+                  <MenuItem dir="rtl" value={30}>
+                    Thirty
+                  </MenuItem>
+                </Select>
+              </AddInput>
+            </div>
+            <div className="filter_price_range">
+              <p className="filter_price_range_title">محدوده قیمت</p>
+              <div className="filter_min_price">
+                <span>از</span>
+                <span>
+                  <NumericFormat
+                    value={value[0]}
+                    thousandSeparator=","
+                    displayType="input"
+                    renderText={(value) => value}
+                    className="input_price"
+                  />
+                </span>
+                <span>تومان</span>
+              </div>
+              <div className="filter_max_price">
+                <span>تا</span>
+                <span>
+                  <NumericFormat
+                    value={value[1]}
+                    thousandSeparator=","
+                    displayType="input"
+                    renderText={(value) => value}
+                    className="input_price"
+                  />
+                </span>
+                <span>تومان</span>
+              </div>
+              <div className="filter_radio_price">
+                <Box sx={{ width: "90%", margin: "auto" }}>
+                  <Slider
+                    getAriaLabel={() => " range"}
+                    value={value}
+                    onChange={handleChangeRadio}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={valuetext}
+                    min={0}
+                    max={10000000}
+                    step={100000}
+                  />
+                </Box>
+              </div>
+            </div>
+            <div className="amount_filter_product">
+              <span>نمایش موجودی</span>
+              <span>
+                <AddSwitch {...label} defaultChecked />
+              </span>
+            </div>
+            <div className="filter_type_product">نوع</div>
+            <div className="OS">سیستم عامل</div>
+            <div className="submit_filter_container">
+              <button className="submit_filter" type="submit">
+                اعمال فیلتر
+              </button>
+            </div>
+          </form>
       </CenterModal>
       {width > 800 && (
         <div className="coassist">

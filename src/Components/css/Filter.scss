@@ -834,7 +834,110 @@
       cursor: pointer;
     }
   }
+  .filter_box {
+    font-family: "IRANSansMedium";
+    direction: rtl;
+    width: 80%;
+    .filte_brand {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .filte_color {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .filter_price_range {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      margin: 10px 0;
+      .filter_price_range_title {
+        width: 100%;
+        margin: 10px 0;
+        font-family: "IRANSansMedium";
+      }
+      .filter_min_price {
+        width: 100%;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        span {
+          text-align: center;
+          font-family: "IRANSansMedium";
+          .input_price {
+            width: 80%;
+            direction: ltr;
+            border: none;
+            border-bottom: 2px solid #0000003f;
+            padding: 5px;
+         
+          }
+        }
+      }
+      .filter_max_price {
+        width: 100%;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          text-align: center;
+          font-family: "IRANSansMedium";
+          .input_price {
+            width: 80%;
+            direction: ltr;
+            border: none;
+            border-bottom: 2px solid #0000003f;
+            padding: 5px;
+          }
+        }
+      }
+      .filter_radio_price {
+        width: 100%;
+      }
+    }
+
+    .amount_filter_product {
+      margin: 20px 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span{
+        font-family: "IRANSansMedium";
+      }
+    }
+    .filter_type_product {
+      margin: 20px 0;
+      font-family: "IRANSansMedium";
+    }
+    .submit_filter_container {
+      margin: 20px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .submit_filter {
+        padding:  10px;
+        border-radius: 10px;
+        background-color: #a78e4fd1;
+        color: #ffffff;
+        border: none;
+        width: 80%;
+        font-size: 1rem;
+        cursor: pointer;
+        font-family: "IRANSansMedium";
+      }
+    }
+  }
   .mainContainer {
+
 
     .coassist{
   
