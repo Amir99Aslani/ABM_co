@@ -3,7 +3,6 @@ import LoadingSpinner from "./Components/wedgits/LoadingSpinner";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import ProductDetail from "./Components/pages/ProductDetail";
-
 export const LoginContext = createContext();
 
 const Root = (props) => {
