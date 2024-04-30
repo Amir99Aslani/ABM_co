@@ -5,6 +5,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const { width, height } = useWindowDimensions();
@@ -47,7 +48,9 @@ function Header(props) {
                         </defs>
                       </svg>
                     </span>
-                    <span>ورود/عضویت</span>
+                    <span>
+                      <Link to="login">ورود/عضویت</Link>
+                    </span>
                   </div>
                   <div className="basket">
                     <svg
@@ -200,7 +203,6 @@ function Header(props) {
                       </div>
                     </div>
                   </li>
-
                 </ul>
                 <label htmlFor="menu-btn" className="btn menu-btn">
                   <i className="fas fa-bars" />

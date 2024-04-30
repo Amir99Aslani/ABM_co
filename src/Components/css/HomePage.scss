@@ -185,7 +185,7 @@
       .accessoriesCardContainer {
         margin: auto;
         display: flex;
-        justify-content: start;
+        justify-content:center;
         align-items: center;
         overflow: scroll;
         width: 80vw;
@@ -360,6 +360,24 @@
 
 @media screen and (max-width: 1200px) {
   .mainContainer {
+    .favoriteMobileBtn {
+      border-radius: 10px;
+      background: #08124f;
+      margin: 20px auto;
+      outline: none;
+      border: none;
+      color: #ffffff;
+      font-family: IRANSansMedium;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all ease-in-out 0.4s;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+      &:hover {
+        filter: opacity(0.8);
+      }
+    }
     .coassist {
       svg {
       }

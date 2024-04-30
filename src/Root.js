@@ -17,6 +17,7 @@ const Root = (props) => {
   const HomePage = React.lazy(() => import("./Components/pages/HomePage"));
   const Category = React.lazy(() => import("./Components/pages/Category"));
   const Filter = React.lazy(() => import("./Components/pages/Filter"));
+  const Login = React.lazy(() => import("./Components/wedgits/Login"));
 
   return (
     <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
@@ -56,6 +57,15 @@ const Root = (props) => {
         }
         exact
         path="/productDetail"
+      />
+              <Route
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Login />
+          </Suspense>
+        }
+        exact
+        path="/login"
       />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

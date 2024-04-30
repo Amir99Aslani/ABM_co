@@ -7,6 +7,7 @@ import Swaper from "../wedgits/Swaper";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import { useDraggable } from "react-use-draggable-scroll";
 import imgslider from "../css/images/f9f2d9c459c927461e22e5468465e638.jpg";
+import { Link } from "react-router-dom";
 
 function HomePage(props) {
   const { width, height } = useWindowDimensions();
@@ -181,7 +182,7 @@ function HomePage(props) {
         <div className="favoriteMobileContainer">
           <div style={{ display: "flex" }}>
             <button className="favoriteMobileBtn">
-              دسته بندی بر اساس برند
+              <Link to='filter'>دسته بندی بر اساس برند</Link>
             </button>
           </div>
 
@@ -400,7 +401,12 @@ function HomePage(props) {
         <br />
 
         {width < 1200 ? (
-          <Swaper imgGP={imgProps} />
+          <>
+            <div style={{ display: "flex" }}>
+              <button className="favoriteMobileBtn">پرفروش‌ ترین ها </button>
+            </div>
+            <Swaper imgGP={imgProps} targetRoute={"filter"} />
+          </>
         ) : (
           <div className="BestSellingProducts">
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -500,7 +506,6 @@ function HomePage(props) {
                 </div>
                 <p>sample</p>
               </div>
-              
             </div>
           </div>
         </div>

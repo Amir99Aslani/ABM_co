@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/Swaper.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import imgcard from "../css/images/Frame 13.svg";
@@ -15,6 +15,9 @@ import useWindowDimensions from "./useWindowDimensions";
 export default function Swaper(props) {
   const { width, height } = useWindowDimensions();
 
+  useEffect(()=>{
+    console.log(props.targetRoute)
+  },[])
   return (
     <>
       <div className="main-container-swaper">
@@ -47,7 +50,7 @@ export default function Swaper(props) {
             </SwiperSlide>
           ))}
 
-          <SwiperSlide>
+          <SwiperSlide >
             <div className="card">
               <div className="imgContainer">
                 <img src={imgcard} alt="" />
