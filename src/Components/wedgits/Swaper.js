@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import "../css/Swaper.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
 import imgcard from "../css/images/Frame 13.svg";
 import imgcart from "../css/images/Vector (6).svg";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
+  // Import Swiper styles
+  import { Swiper, SwiperSlide } from "swiper/react";
+  import "swiper/css";
+  import "swiper/css/free-mode";
+  import "swiper/css/pagination";
+  import { Autoplay, Pagination } from "swiper/modules";
 // import required modules
-import { Autoplay, Pagination } from "swiper/modules";
 import useWindowDimensions from "./useWindowDimensions";
 
 export default function Swaper(props) {
   const { width, height } = useWindowDimensions();
 
   useEffect(()=>{
-    console.log(props.targetRoute)
+
   },[])
   return (
     <>
