@@ -7,7 +7,9 @@ import Swaper from "../wedgits/Swaper";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import { useDraggable } from "react-use-draggable-scroll";
 import imgslider from "../css/images/f9f2d9c459c927461e22e5468465e638.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 function HomePage(props) {
   const { width, height } = useWindowDimensions();
@@ -21,6 +23,7 @@ function HomePage(props) {
     imgslider,
     imgslider,
   ];
+  const navigate = useNavigate()
 
   return (
     <div className="mainContainer">
@@ -470,7 +473,7 @@ function HomePage(props) {
               </div>
             </div> */}
             <div className="accessoriesCardContainer" {...events} ref={ref}>
-              <div className="brandsCard_container">
+              <div className="brandsCard_container" onClick={()=>navigate('/productDetail')}>
                 <div className="brandsCard">
                   <img src="./Frame 20.png" alt="" />
                 </div>

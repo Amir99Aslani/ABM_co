@@ -3,7 +3,6 @@ import LoadingSpinner from "./Components/wedgits/LoadingSpinner";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import "react-spring-modal/styles.css";
-import ProductDetail from "./Components/pages/ProductDetail";
 export const LoginContext = createContext();
 
 const Root = (props) => {
@@ -18,6 +17,7 @@ const Root = (props) => {
   const Category = React.lazy(() => import("./Components/pages/Category"));
   const Filter = React.lazy(() => import("./Components/pages/Filter"));
   const Login = React.lazy(() => import("./Components/wedgits/Login"));
+  const ProductDetail = React.lazy(() => import("./Components/pages/ProductDetail"));
 
   return (
     <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>

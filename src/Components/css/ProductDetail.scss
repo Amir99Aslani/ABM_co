@@ -97,15 +97,32 @@
           button {
             border: none;
             box-shadow: none;
-            width: 40px;
-            height: 40px;
+            // width: 40px;
+            // height: 40px;
             cursor: pointer;
             border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             svg {
               width: 40px;
               height: 40px;
               cursor: pointer;
             }
+          }
+        }
+        .shopCard_price {
+          width: 80%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #2f257e;
+          border-radius: 10px;
+          padding: 10px;
+          color: #ffffff;
+          margin: 10px;
+          span {
+            margin: 0 5px;
           }
         }
         .add_shopCart_btn {
@@ -115,6 +132,7 @@
           padding: 10px;
           color: #ffffff;
           border: none;
+          cursor: pointer;
         }
       }
       .product_desc_container {
@@ -299,7 +317,883 @@
     }
 
     .crucelContainer {
+      .merchandiseDataBtn {
+        border-radius: 10px;
+        background: #08124f;
+        outline: none;
+        border: none;
+        color: #ffffff;
+        font-family: IRANSansMedium;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all ease-in-out 0.4s;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        margin: 20px auto;
+        &:hover {
+          filter: opacity(0.8);
+        }
+      }
+
       min-height: 40%;
     }
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        .image_container {
+          img {
+        
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+                width: 35px;
+                height: 35px;
+              }
+            }
+          }
+          .shopCard_price {
+            font-size: 0.9rem;
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          .product_desc_detail {
+            .desc {
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                  min-width: 150px;
+
+                  .title_desc {
+                    font-size: 0.8rem;
+                  }
+
+                  p {
+                    font-size: 0.8rem;
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                  margin: 0 10px;
+                  padding: 10px;
+                  font-size: 0.7rem;
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        .image_container {
+          img {
+            width: 75%;
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+          .shopCard_price {
+            font-size: 0.9rem;
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          .product_desc_detail {
+            padding: 10px;
+            .desc {
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                  min-width:150px;
+                  margin: 7px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                  width: 40%;
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                    font-size: 0.8rem;
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        display: flex;
+        flex-direction: column;
+        .image_container {
+          width: 100%;
+          position: relative;
+          img {
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+              }
+            }
+          }
+          .shopCard_price {
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          width: 100%;
+          .product_desc_detail {
+            .desc {
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                min-width: 250px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 638px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        display: flex;
+        flex-direction: column;
+        .image_container {
+          width: 100%;
+          position: relative;
+          img {
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+              }
+            }
+          }
+          .shopCard_price {
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          width: 100%;
+          .product_desc_detail {
+            .desc {
+              font-size: 0.9rem;
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              p{
+                font-size: 0.8rem;
+              }
+              span {
+                width: 15px;
+                height: 15px;
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                min-width: 200px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+            font-size: 0.9rem;
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+                font-size: 0.8rem;
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        display: flex;
+        flex-direction: column;
+        .image_container {
+          width: 100%;
+          position: relative;
+          img {
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+              }
+            }
+          }
+          .shopCard_price {
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          width: 100%;
+          .product_desc_detail {
+            .desc {
+              font-size: 0.8rem;
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                min-width: 150px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                  width: 50%;
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        display: flex;
+        flex-direction: column;
+        .image_container {
+          width: 100%;
+          position: relative;
+          img {
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+              }
+            }
+          }
+          .shopCard_price {
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          width: 100%;
+          .product_desc_detail {
+            .desc {
+              font-size: 0.8rem;
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                min-width: 150px;
+                margin: 3px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                  width: 80%;
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                    font-size: 0.75;
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
+// .mainContainer {
+//   .coassist {
+
+//     svg {
+//     }
+//   }
+
+//   .mainContent {
+
+//     .projuct_detail {
+
+//       .image_container {
+
+//         img {
+
+//         }
+//         .all_images {
+
+//           .otherImages_conitainer {
+
+//             &::-webkit-scrollbar {
+
+//             }
+//             .otherImage_items {
+
+//               img {
+
+//               }
+//             }
+//           }
+//           button {
+
+//             svg {
+
+//             }
+//           }
+//         }
+//         .shopCard_price{
+
+//           span{
+
+//           }
+//         }
+//         .add_shopCart_btn {
+
+//         }
+//       }
+//       .product_desc_container {
+
+//         .product_desc_detail {
+//           .desc {
+//           }
+//           .rate_container {
+//             .rate {
+//             }
+//             .opponiens {
+//             }
+//           }
+//           .product_color {
+//             span {
+
+//             }
+//           }
+//           .product_features {
+
+//             p {
+
+//             }
+
+//             .feature_items {
+
+//               .feature_item {
+
+//                 .title_desc {
+
+//                 }
+
+//                 p {
+
+//                 }
+//               }
+//             }
+//             .show_more_BG {
+
+//               span {
+
+//               }
+//               button {
+
+//               }
+//             }
+//             .more_desc {
+
+//               .more_info_items {
+
+//                 .more_info_item {
+
+//                 }
+//               }
+//               &.show_more {
+
+//               }
+//             }
+//           }
+//         }
+//       }
+//       .users_idea_container {
+
+//         h3 {
+
+//         }
+//         .user_idea_item {
+
+//           .text_rate {
+
+//             .text {
+
+//             }
+//             .rate {
+//             }
+//           }
+//           .like_dislike {
+//             span {
+
+//             }
+//             .like {
+//             }
+//             .dislike {
+//             }
+//           }
+//         }
+//       }
+//     }
+
+//     .crucelContainer {
+//       .merchandiseDataBtn {
+
+//         &:hover {
+//          }
+
+//       }
+
+//     }
+//   }
+// }
