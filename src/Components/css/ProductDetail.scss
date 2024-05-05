@@ -1052,6 +1052,125 @@
   }
 }
 
+@media screen and (max-width: 360px) {
+  .mainContainer {
+    .coassist {
+      svg {
+      }
+    }
+
+    .mainContent {
+      .projuct_detail {
+        display: flex;
+        flex-direction: column;
+        .image_container {
+          width: 100%;
+          position: relative;
+          img {
+          }
+          .all_images {
+            .otherImages_conitainer {
+              &::-webkit-scrollbar {
+              }
+              .otherImage_items {
+                img {
+                }
+              }
+            }
+            button {
+              svg {
+              }
+            }
+          }
+          .shopCard_price {
+            span {
+            }
+          }
+          .add_shopCart_btn {
+          }
+        }
+        .product_desc_container {
+          width: 100%;
+          .product_desc_detail {
+            .desc {
+              font-size: 0.8rem;
+            }
+            .rate_container {
+              .rate {
+              }
+              .opponiens {
+              }
+            }
+            .product_color {
+              span {
+              }
+            }
+            .product_features {
+              p {
+              }
+
+              .feature_items {
+                .feature_item {
+                min-width: 130px;
+                margin: 3px;
+                  .title_desc {
+                  }
+
+                  p {
+                  }
+                }
+              }
+              .show_more_BG {
+                span {
+                }
+                button {
+                  width: 80%;
+                }
+              }
+              .more_desc {
+                .more_info_items {
+                  .more_info_item {
+                    font-size: 0.75;
+                  }
+                }
+                &.show_more {
+                }
+              }
+            }
+          }
+        }
+        .users_idea_container {
+          h3 {
+          }
+          .user_idea_item {
+            .text_rate {
+              .text {
+              }
+              .rate {
+              }
+            }
+            .like_dislike {
+              span {
+              }
+              .like {
+              }
+              .dislike {
+              }
+            }
+          }
+        }
+      }
+
+      .crucelContainer {
+        .merchandiseDataBtn {
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
+
 // .mainContainer {
 //   .coassist {
 

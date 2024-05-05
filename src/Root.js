@@ -3,6 +3,7 @@ import LoadingSpinner from "./Components/wedgits/LoadingSpinner";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import "react-spring-modal/styles.css";
+
 export const LoginContext = createContext();
 
 const Root = (props) => {
