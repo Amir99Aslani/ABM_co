@@ -6,12 +6,22 @@ import Scrollbars from "react-custom-scrollbars-2";
 import { CenterModal } from "react-spring-modal";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import Maping from "../wedgits/Maping";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 export default function () {
   const { width, height } = useWindowDimensions();
   const selectNav = useRef(null);
   const [selectedNav, setSelectedNav] = useState("address");
-  const [LocationData, setLocationData] = useState(false);
+  const [LocationData, setLocationData] = useState(null);
   const [openAddressModal, setOpenAddressModal] = useState(false);
+  let iranCity = require("iran-city");
+  let AllCities = iranCity.allCities();
+  let AllProvinces = iranCity.allProvinces();
+  let CitiesOfProvince = iranCity.citiesOfProvince(11);
+  console.log(AllCities);
+  console.log(AllProvinces);
+  console.log(CitiesOfProvince);
   return (
     <>
       <CenterModal
@@ -37,18 +47,73 @@ export default function () {
             alignItems: "center",
             flexDirection: "column",
             border: "#AA0002 solid 2px ",
-            height:"60vh"
+            height: "60vh",
           },
         }}
       >
-        <form className="map_container">
-          <h4>انتخاب آدرس از روی نقشه</h4>
-        <div className="map_box">
-        <Maping onsetLocationData={setLocationData} />
+           <div className="addressInput_container">
+            <div className="addressInput">
+            <Autocomplete
+      id="country-select-demo"
+      sx={{ width: 300 }}
+      options={AllProvinces}
+      autoHighlight
+      getOptionLabel={(option) => console.log(option.name)}
+      renderOption={(props, option) => (
+        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+          {option.name}
+        </Box>
+      )}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Choose a country"
+          inputProps={{
+            ...params.inputProps,
+            autoComplete: 'new-password', // disable autocomplete and autofill
+          }}
+        />
+      )}
+    />
+            </div>
+          </div>
+        {!LocationData ? (
+          <div className="map_container">
+            <h4>انتخاب آدرس از روی نقشه</h4>
+            <div className="map_box">
+              <Maping onsetLocationData={setLocationData} />
+            </div>
+          </div>
+        ) : (
+          <div className="addressInput_container">
+            <div className="addressInput">
+            <Autocomplete
+      id="country-select-demo"
+      sx={{ width: 300 }}
+      options={AllProvinces}
+      autoHighlight
+      getOptionLabel={(option) => option.label}
+      renderOption={(props, option) => (
+        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
 
-        </div>
-        <button className="submit_map_btn"> ثبت</button>
-        </form>
+          {option.label} ({option.code}) +{option.phone}
+        </Box>
+      )}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Choose a country"
+          inputProps={{
+            ...params.inputProps,
+            autoComplete: 'new-password', // disable autocomplete and autofill
+          }}
+        />
+      )}
+    />
+            </div>
+          </div>
+        )}
+        {/* <button onClick={()=>console.log(LocationData)} className="submit_map_btn"> fdsf</button> */}
       </CenterModal>
       <div className="mainContainer">
         <div className="mainContent">

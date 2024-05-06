@@ -10,16 +10,19 @@
 .map_container {
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
+  position: relative;
   h4 {
     width: 100%;
     text-align: end;
+    margin: 30px 0 0 0 ;
   }
   .map_box {
     width: 400px;
     height: 300px;
+    margin: 10% 0;
   }
   .submit_map_btn {
     background-color: #aa0002;
