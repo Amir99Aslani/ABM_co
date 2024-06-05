@@ -1,27 +1,80 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../css/Profile.scss";
 import defaultImg from "../css/images/Ellipse 13.svg";
-import Img from "../css/images/image 1.svg";
+import map_img from "../css/images/image 1.svg";
 import Scrollbars from "react-custom-scrollbars-2";
 import { CenterModal } from "react-spring-modal";
 import useWindowDimensions from "../wedgits/useWindowDimensions";
 import Maping from "../wedgits/Maping";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { alpha, styled } from "@mui/material/styles";
+import { useFormik } from "formik";
+import { baseicSchema } from "../wedgits/schemas";
+import sample from "../css/images/Frame 13 (1).png";
+import { NumericFormat } from "react-number-format";
+
+const CompleteField = styled(Autocomplete)(({ theme }) => ({
+  direction: "rtl",
+  boxShadow: "0px 0px 17.3px 0px #0000001a",
+  outline: "none !important",
+  borderRadius: "5px",
+  "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {},
+  "& input": {
+    padding: "0 !important",
+    boxShadow: "none !important",
+    fontSize: "0.8rem",
+  },
+  "& .MuiOutlinedInput-root": {
+    padding: "0",
+  },
+  "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+    border: "none",
+  },
+}));
+
 export default function () {
   const { width, height } = useWindowDimensions();
   const selectNav = useRef(null);
-  const [selectedNav, setSelectedNav] = useState("address");
+  const [selectedNav, setSelectedNav] = useState("orders");
+  const [selectedOrder, setSelectedOrder] = useState("current");
+  const [showMoreModal, setShowMoreModal] = useState(false);
   const [LocationData, setLocationData] = useState(null);
   const [openAddressModal, setOpenAddressModal] = useState(false);
+  const [openInputs, setOpenInputs] = useState(false);
+  const [slectedProvince, setSelectedProvince] = useState(null);
+  const [slectedCity, setSelectedCity] = useState(null);
+
+  const onSubmit = () => {
+    console.log("first");
+  };
+
+  const { values, handleChange, handleSubmit, errors, touched } = useFormik({
+    initialValues: {
+      provinces: "",
+      city: "",
+      neighbourhood: "",
+      street: "",
+      block: "",
+      floor: "",
+      post_code: "",
+      phone_number: "",
+      resiver: "",
+    },
+    validationSchema: baseicSchema,
+    onSubmit,
+  });
+
   let iranCity = require("iran-city");
   let AllCities = iranCity.allCities();
   let AllProvinces = iranCity.allProvinces();
   let CitiesOfProvince = iranCity.citiesOfProvince(11);
-  console.log(AllCities);
-  console.log(AllProvinces);
-  console.log(CitiesOfProvince);
+  // console.log(AllCities);
+  // console.log(AllProvinces);
+  // console.log(CitiesOfProvince);
+
+  useEffect(() => {});
   return (
     <>
       <CenterModal
@@ -46,75 +99,503 @@ export default function () {
             justifyContent: "space-around",
             alignItems: "center",
             flexDirection: "column",
-            border: "#AA0002 solid 2px ",
+            boxShadow: "0px 0px 25.7px 0px #00000040",
             height: "60vh",
           },
         }}
       >
-           <div className="addressInput_container">
-            <div className="addressInput">
-            <Autocomplete
-      id="country-select-demo"
-      sx={{ width: 300 }}
-      options={AllProvinces}
-      autoHighlight
-      getOptionLabel={(option) => console.log(option.name)}
-      renderOption={(props, option) => (
-        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-          {option.name}
-        </Box>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a country"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
-            </div>
+        <div className="map_container">
+          <h4>انتخاب آدرس از روی نقشه</h4>
+          <div className="map_box">
+            <Maping
+              onsetLocationData={setLocationData}
+              onSetOpenAddressModal={setOpenAddressModal}
+              onSetOpenInputs={setOpenInputs}
+            />
           </div>
-        {!LocationData ? (
-          <div className="map_container">
-            <h4>انتخاب آدرس از روی نقشه</h4>
-            <div className="map_box">
-              <Maping onsetLocationData={setLocationData} />
-            </div>
-          </div>
-        ) : (
-          <div className="addressInput_container">
-            <div className="addressInput">
-            <Autocomplete
-      id="country-select-demo"
-      sx={{ width: 300 }}
-      options={AllProvinces}
-      autoHighlight
-      getOptionLabel={(option) => option.label}
-      renderOption={(props, option) => (
-        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-
-          {option.label} ({option.code}) +{option.phone}
-        </Box>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a country"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
-            </div>
-          </div>
-        )}
-        {/* <button onClick={()=>console.log(LocationData)} className="submit_map_btn"> fdsf</button> */}
+        </div>
       </CenterModal>
+
+      <CenterModal
+        isOpen={openInputs}
+        onDismiss={() => {
+          setOpenInputs(false);
+        }}
+        overlayProps={{
+          style: {
+            zIndex: 1000,
+            background: "#D9D9D991",
+            backdropFilter: "blur(3.549999952316284px)",
+          },
+        }}
+        contentProps={{
+          style: {
+            padding: 20,
+            borderRadius: "20px",
+            background: "#FFFFFFE5",
+            width: "80vw",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            flexDirection: "column",
+            boxShadow: "0px 0px 25.7px 0px #00000040",
+            height: "auto",
+          },
+        }}
+      >
+        <form className="addressInput_container" onSubmit={handleSubmit}>
+          <div className="addressInput">
+            <label>استان</label>
+            <CompleteField
+              id="country-select-demo"
+              autoComplete="true"
+              sx={{ width: "100%", border: "none" }}
+              options={AllProvinces}
+              autoHighlight
+              getOptionLabel={(option) => option.name}
+              onChange={(event, value) => setSelectedProvince(value)}
+              renderOption={(props, option, value) => (
+                <>
+                  <Box
+                    component="li"
+                    sx={{
+                      "& > img": { mr: 2, flexShrink: 0 },
+                      direction: "rtl",
+                    }}
+                    {...props}
+                  >
+                    {option.name}
+                    {/* {option.id} */}
+                  </Box>
+                </>
+              )}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  inputProps={{
+                    autoComplete: "autofill",
+                    ...params.inputProps,
+                  }}
+                />
+              )}
+            />
+          </div>
+          <div className="addressInput">
+            <label>شهر</label>
+            <CompleteField
+              onChange={(event, value) => setSelectedCity(value)}
+              id="country-select-demo"
+              autoComplete="true"
+              sx={{ width: "100%" }}
+              options={iranCity?.citiesOfProvince(slectedProvince?.id)}
+              autoHighlight
+              getOptionLabel={(option) => option.name}
+              renderOption={(props, option) => (
+                <Box
+                  onClick={() => {
+                    console.log("first");
+                  }}
+                  component="li"
+                  sx={{
+                    "& > img": { mr: 2, flexShrink: 0 },
+                    direction: "rtl",
+                  }}
+                  {...props}
+                >
+                  {option.name}
+                </Box>
+              )}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  inputProps={{
+                    autoComplete: "autofill",
+                    ...params.inputProps,
+                  }}
+                />
+              )}
+            />
+          </div>
+          <div className="addressInput">
+            <label>محله</label>
+
+            <input
+              className={
+                errors.neighbourhood && touched.neighbourhood
+                  ? "error"
+                  : undefined
+              }
+              id="neighbourhood"
+              onChange={handleChange}
+              value={values.neighbourhood}
+            />
+          </div>
+          <div className="addressInput">
+            <label>خیابان</label>
+            <input
+              className={errors.street && touched.street ? "error" : undefined}
+              id="street"
+              onChange={handleChange}
+              value={values.street}
+            />
+          </div>
+          <div className="addressInput">
+            <label>پلاک</label>
+            <input
+              className={errors.block && touched.block ? "error" : undefined}
+              id="block"
+              value={values.block}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="addressInput">
+            <label>واحد</label>
+            <input
+              className={errors.floor && touched.floor ? "error" : undefined}
+              id="floor"
+              onChange={handleChange}
+              value={values.floor}
+            />
+          </div>
+          <div className="addressInput">
+            <label>کدپستی</label>
+            <input
+              className={
+                errors.post_code && touched.post_code ? "error" : undefined
+              }
+              id="post_code"
+              onChange={handleChange}
+              value={values.post_code}
+            />
+          </div>
+          <div className="addressInput">
+            <label>شماره همراه گیرنده</label>
+            <input
+              className={
+                errors.phone_number && touched.phone_number
+                  ? "error"
+                  : undefined
+              }
+              id="phone_number"
+              onChange={handleChange}
+              value={values.phone_number}
+            />
+          </div>
+          <div className="addressInput resiver">
+            <label>نام گیرنده</label>
+            <input
+              className={`resiver ${
+                errors.resiver && touched.resiver ? "error" : undefined
+              }`}
+              id="resiver"
+              onChange={handleChange}
+              value={values.resiver}
+            />
+          </div>
+        </form>
+        <button className="submitInfo" onClick={() => {}}>
+          ثبت
+        </button>
+      </CenterModal>
+
+      <CenterModal
+        isOpen={showMoreModal}
+        onDismiss={() => {
+          setShowMoreModal(false);
+        }}
+        overlayProps={{
+          style: {
+            zIndex: 1000,
+            background: "#D9D9D991",
+            backdropFilter: "blur(3.549999952316284px)",
+          },
+        }}
+        contentProps={{
+          style: {
+            padding: 20,
+            borderRadius: "20px",
+            background: "#FFFFFFE5",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            boxShadow: "0px 0px 25.7px 0px #00000040",
+            height: "100vh",
+            minWidth: "80%",
+          },
+        }}
+      >
+        <div className="more_details">
+          <Scrollbars
+            autoHide
+            autoHideTimeout={1000}
+            style={{
+              height: "100%",
+              maxHeight: "80%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "row",
+              width: "100%",
+              padding: "10px",
+              margin: "auto",
+              marginTop: "40px",
+              direction: "ltr",
+            }}
+          >
+            <div className="order_products_container">
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order_products">
+                <div className="order_product_item">
+                  <img src={sample} alt="عکس محصول" />
+                  <div className="order_pr_desc">
+                    <p className="order_pr_price">
+                      <NumericFormat
+                        style={{
+                          fontFamily: "inherit",
+                          color: "inherit",
+                          fontSize: "inherit",
+                        }}
+                        value={1231231}
+                        thousandSeparator=","
+                        displayType="text"
+                        renderText={(value) => <b>{value}</b>}
+                      />
+                      تومان
+                    </p>
+                    <p className="order_desc">
+                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                      FX506HF-HN014-i5 11400H 16GB 512SSD RTX2050 - کاستوم شده
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="detail_desc_container">
+              <div className="detail_desc_item">
+                <p>وضعیت:</p>
+                <p>ارسال شده</p>
+              </div>
+              <div className="detail_desc_item">
+                <p>تحویل گرینده:</p>
+                <p>سجاد حسین زاده</p>
+              </div>
+              <div className="detail_desc_item">
+                <p>آدرس:</p>
+                <p>بل نلسون ماندلا، بعد از چهارراه جهان کودک، خ. کیش</p>
+              </div>
+              <div className="detail_desc_item">
+                <p>مبلغ سفارش:</p>
+                <p>
+                  <NumericFormat
+                    style={{
+                      fontFamily: "inherit",
+                      color: "inherit",
+                      fontSize: "inherit",
+                    }}
+                    value={1231231}
+                    thousandSeparator=","
+                    displayType="text"
+                    renderText={(value) => <b>{value}</b>}
+                  />
+                  تومان
+                </p>
+              </div>
+              <div className="detail_desc_item">
+                <p>تخفیف:</p>
+                <p>
+                  <NumericFormat
+                    style={{
+                      fontFamily: "inherit",
+                      color: "inherit",
+                      fontSize: "inherit",
+                    }}
+                    value={1231231}
+                    thousandSeparator=","
+                    displayType="text"
+                    renderText={(value) => <b>{value}</b>}
+                  />
+                  تومان
+                </p>
+              </div>
+              <div className="detail_desc_item">
+                <p>هزینه ارسال:</p>
+                <p>
+                  <NumericFormat
+                    style={{
+                      fontFamily: "inherit",
+                      color: "inherit",
+                      fontSize: "inherit",
+                    }}
+                    value={1231231}
+                    thousandSeparator=","
+                    displayType="text"
+                    renderText={(value) => <b>{value}</b>}
+                  />
+                  تومان
+                </p>
+              </div>
+            </div>
+          </Scrollbars>
+        </div>
+      </CenterModal>
+
       <div className="mainContainer">
         <div className="mainContent">
           <div className="profile_container">
@@ -462,7 +943,7 @@ export default function () {
                           </span>
                           <span>حذف آدرس</span>
                         </button>
-                        <img src={Img} />
+                        <img src={map_img} />
                       </div>
                     </div>
                     <div className="address_box">
@@ -595,7 +1076,7 @@ export default function () {
                           </span>
                           <span>حذف آدرس</span>
                         </button>
-                        <img src={Img} />
+                        <img src={map_img} />
                       </div>
                     </div>
                     <div className="address_box">
@@ -728,7 +1209,7 @@ export default function () {
                           </span>
                           <span>حذف آدرس</span>
                         </button>
-                        <img src={Img} />
+                        <img src={map_img} />
                       </div>
                     </div>
                     <div className="address_box">
@@ -861,8 +1342,583 @@ export default function () {
                           </span>
                           <span>حذف آدرس</span>
                         </button>
-                        <img src={Img} />
+                        <img src={map_img} />
                       </div>
+                    </div>
+                  </Scrollbars>
+                </div>
+              )}
+              {selectedNav == "orders" && (
+                <div className="orders_container">
+                  <div className="orders_titles">
+                    <div
+                      onClick={() => setSelectedOrder("current")}
+                      className={`orders_title_item ${
+                        selectedOrder == "current" ? "selected" : undefined
+                      }`}
+                    >
+                      <p className="order_title">سفارشات جاری</p>
+                      <span className="order_num">2</span>
+                    </div>
+
+                    <div
+                      onClick={() => setSelectedOrder("success")}
+                      className={`orders_title_item ${
+                        selectedOrder == "success" ? "selected" : undefined
+                      }`}
+                    >
+                      <p className="order_title">سفارشات تحویل شده</p>
+                      <span className="order_num">4</span>
+                    </div>
+
+                    <div
+                      onClick={() => setSelectedOrder("canceled")}
+                      className={`orders_title_item ${
+                        selectedOrder == "canceled" ? "selected" : undefined
+                      }`}
+                    >
+                      <p className="order_title">سفارشات لغو شده</p>
+                      <span className="order_num">3</span>
+                    </div>
+
+                    <div
+                      onClick={() => setSelectedOrder("returned")}
+                      className={`orders_title_item ${
+                        selectedOrder == "returned" ? "selected" : undefined
+                      }`}
+                    >
+                      <p className="order_title">سفارشات مرجوعی</p>
+                      <span className="order_num">3</span>
+                    </div>
+                  </div>
+
+                  <Scrollbars
+                    autoHide
+                    autoHideTimeout={1000}
+                    style={{
+                      height: "100%",
+                      maxHeight: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      width: "100%",
+                      padding: "10px",
+                      margin: "auto",
+                      marginTop: "40px",
+                      direction: "ltr",
+                    }}
+                  >
+                    <div className="order_items_desc">
+                      {selectedOrder == "current" && (
+                        <>
+                          <div className="current_order">
+                            <div className="order_info">
+                              <p>کد پیگیری : 98765456789</p>
+                              <p>تاریخ : 02/03/1403</p>
+                              <p>وضعیت : ارسال شده</p>
+                              <p>
+                                <svg
+                                  width="27"
+                                  height="26"
+                                  viewBox="0 0 27 26"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.00562 17.5972V1L9.74705 1.92207L11.4885 1L13.2267 1.92207L14.9882 1L16.7128 1.92207L18.4428 1L20.1804 1.92207L21.9371 1L23.6791 1.92207L25.42 1V13.9089"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M25.4202 13.8152V20.3105C25.4202 21.541 24.9607 22.721 24.1429 23.5911C23.3251 24.4612 22.216 24.95 21.0594 24.95M21.0594 24.95C19.9029 24.95 18.7937 24.4612 17.9759 23.5911C17.1581 22.721 16.6987 21.541 16.6987 20.3105V17.5268H1.87218C1.75737 17.5257 1.6435 17.549 1.53722 17.5952C1.43095 17.6415 1.3344 17.7098 1.25321 17.7962C1.17202 17.8825 1.10782 17.9853 1.06435 18.0983C1.02088 18.2114 0.999016 18.3325 1.00003 18.4547C1.00003 22.1663 1.36743 24.95 5.36077 24.95H21.0594Z"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M11.4084 6.67212H22.0172"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M15.0117 11.0847H22.0175"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                                <span onClick={() => setShowMoreModal(true)}>
+                                  مشاهده بیشتر...
+                                </span>
+                              </p>
+                            </div>
+                            <div className="order_products_container">
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="current_order">
+                            <div className="order_info">
+                              <p>کد پیگیری : 98765456789</p>
+                              <p>تاریخ : 02/03/1403</p>
+                              <p>وضعیت : ارسال شده</p>
+                              <p>
+                                <svg
+                                  width="27"
+                                  height="26"
+                                  viewBox="0 0 27 26"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.00562 17.5972V1L9.74705 1.92207L11.4885 1L13.2267 1.92207L14.9882 1L16.7128 1.92207L18.4428 1L20.1804 1.92207L21.9371 1L23.6791 1.92207L25.42 1V13.9089"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M25.4202 13.8152V20.3105C25.4202 21.541 24.9607 22.721 24.1429 23.5911C23.3251 24.4612 22.216 24.95 21.0594 24.95M21.0594 24.95C19.9029 24.95 18.7937 24.4612 17.9759 23.5911C17.1581 22.721 16.6987 21.541 16.6987 20.3105V17.5268H1.87218C1.75737 17.5257 1.6435 17.549 1.53722 17.5952C1.43095 17.6415 1.3344 17.7098 1.25321 17.7962C1.17202 17.8825 1.10782 17.9853 1.06435 18.0983C1.02088 18.2114 0.999016 18.3325 1.00003 18.4547C1.00003 22.1663 1.36743 24.95 5.36077 24.95H21.0594Z"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M11.4084 6.67212H22.0172"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M15.0117 11.0847H22.0175"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                                <span onClick={() => setShowMoreModal(true)}>
+                                  مشاهده بیشتر...
+                                </span>
+                              </p>
+                            </div>
+                            <div className="order_products_container">
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="current_order">
+                            <div className="order_info">
+                              <p>کد پیگیری : 98765456789</p>
+                              <p>تاریخ : 02/03/1403</p>
+                              <p>وضعیت : ارسال شده</p>
+                              <p>
+                                <svg
+                                  width="27"
+                                  height="26"
+                                  viewBox="0 0 27 26"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.00562 17.5972V1L9.74705 1.92207L11.4885 1L13.2267 1.92207L14.9882 1L16.7128 1.92207L18.4428 1L20.1804 1.92207L21.9371 1L23.6791 1.92207L25.42 1V13.9089"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M25.4202 13.8152V20.3105C25.4202 21.541 24.9607 22.721 24.1429 23.5911C23.3251 24.4612 22.216 24.95 21.0594 24.95M21.0594 24.95C19.9029 24.95 18.7937 24.4612 17.9759 23.5911C17.1581 22.721 16.6987 21.541 16.6987 20.3105V17.5268H1.87218C1.75737 17.5257 1.6435 17.549 1.53722 17.5952C1.43095 17.6415 1.3344 17.7098 1.25321 17.7962C1.17202 17.8825 1.10782 17.9853 1.06435 18.0983C1.02088 18.2114 0.999016 18.3325 1.00003 18.4547C1.00003 22.1663 1.36743 24.95 5.36077 24.95H21.0594Z"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M11.4084 6.67212H22.0172"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M15.0117 11.0847H22.0175"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                                <span onClick={() => setShowMoreModal(true)}>
+                                  مشاهده بیشتر...
+                                </span>
+                              </p>
+                            </div>
+                            <div className="order_products_container">
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="current_order">
+                            <div className="order_info">
+                              <p>کد پیگیری : 98765456789</p>
+                              <p>تاریخ : 02/03/1403</p>
+                              <p>وضعیت : ارسال شده</p>
+                              <p>
+                                <svg
+                                  width="27"
+                                  height="26"
+                                  viewBox="0 0 27 26"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.00562 17.5972V1L9.74705 1.92207L11.4885 1L13.2267 1.92207L14.9882 1L16.7128 1.92207L18.4428 1L20.1804 1.92207L21.9371 1L23.6791 1.92207L25.42 1V13.9089"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M25.4202 13.8152V20.3105C25.4202 21.541 24.9607 22.721 24.1429 23.5911C23.3251 24.4612 22.216 24.95 21.0594 24.95M21.0594 24.95C19.9029 24.95 18.7937 24.4612 17.9759 23.5911C17.1581 22.721 16.6987 21.541 16.6987 20.3105V17.5268H1.87218C1.75737 17.5257 1.6435 17.549 1.53722 17.5952C1.43095 17.6415 1.3344 17.7098 1.25321 17.7962C1.17202 17.8825 1.10782 17.9853 1.06435 18.0983C1.02088 18.2114 0.999016 18.3325 1.00003 18.4547C1.00003 22.1663 1.36743 24.95 5.36077 24.95H21.0594Z"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M11.4084 6.67212H22.0172"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M15.0117 11.0847H22.0175"
+                                    stroke="#515151"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                                <span onClick={() => setShowMoreModal(true)}>
+                                  مشاهده بیشتر...
+                                </span>
+                              </p>
+                            </div>
+                            <div className="order_products_container">
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="order_products">
+                                <div className="order_product_item">
+                                  <img src={sample} alt="عکس محصول" />
+                                  <div className="order_pr_desc">
+                                    <p className="order_pr_price">
+                                      <NumericFormat
+                                        style={{
+                                          fontFamily: "inherit",
+                                          color: "inherit",
+                                          fontSize: "inherit",
+                                        }}
+                                        value={1231231}
+                                        thousandSeparator=","
+                                        displayType="text"
+                                        renderText={(value) => <b>{value}</b>}
+                                      />
+                                      تومان
+                                    </p>
+                                    <p className="order_desc">
+                                      لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15
+                                      FX506HF-HN014-i5 11400H 16GB 512SSD
+                                      RTX2050 - کاستوم شده
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </Scrollbars>
                 </div>

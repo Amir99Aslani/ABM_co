@@ -60,7 +60,7 @@ const Root = (props) => {
             </Suspense>
           }
           exact
-          path="/productDetail"
+          path="/productDetail/:id/:name"
         />
 
         <Route

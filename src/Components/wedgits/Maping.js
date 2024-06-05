@@ -28,7 +28,9 @@ function Maping(props) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [coordination, setCoordination] = useState([59.55034402575518, 36.31799828092092]);
+  const [coordination, setCoordination] = useState([
+    59.55034402575518, 36.31799828092092,
+  ]);
 
   const locRef = useRef("");
   const howToServe = async (coordinate) => {
@@ -38,9 +40,9 @@ function Maping(props) {
   const getMapData = useCallback(async (e) => {
     setIsLoading(true);
     let ltln = {
-        lat : e.current.lat ?? 36.31799828092092,
-        lng: e.current.lng ??  59.55034402575518 
-    }
+      lat: e.current.lat ?? 36.31799828092092,
+      lng: e.current.lng ?? 59.55034402575518,
+    };
     var url = `https://map.ir/reverse/no?lat=${ltln.lat}&lon=${ltln.lng}`;
 
     try {
@@ -56,7 +58,7 @@ function Maping(props) {
         // console.log(response.data);
         setCoordination([ltln.lat, ltln.lng]);
         props.onsetLocationData(response.data);
-        console.log(response.data)
+        console.log(response.data);
       }
     } catch (error) {
       setError(error.message);
@@ -67,7 +69,6 @@ function Maping(props) {
 
   return (
     <>
-
       <Mapir
         center={coordination}
         Zoom={[20]}
@@ -91,7 +92,11 @@ function Maping(props) {
 
           <button
             className="confirmLocation"
-            onClick={() => getMapData(locRef)}
+            onClick={() => {
+              getMapData(locRef);
+              props.onSetOpenAddressModal(false);
+              props.onSetOpenInputs(true);
+            }}
           >
             {/* <FaCheck /> */}
             ثبت
